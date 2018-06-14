@@ -1,0 +1,65 @@
+/*Include font*/
+
+@import url('https://fonts.googleapis.com/css?family=Signika:300,400,600,700');
+@import "variables";
+/*Branding*/
+
+@import "branding/colors";
+@import "branding/gradients";
+@import "branding/backgrounds";
+/*Typography*/
+
+@import "typography/typography";
+/**Common styles*/
+
+@import "common/main";
+@import "common/border";
+@import "common/placeholder";
+@import "common/shadow";
+/*Elements*/
+
+@import "elements/links";
+@import "elements/buttons";
+/*Components*/
+
+@import "components/animated-logo";
+@import "components/admin";
+@import "components/admin-users";
+@import "components/headers";
+@import "components/assignments";
+@import "components/avatar";
+@import "components/badges";
+@import "components/byrd-feature-block";
+@import "components/chats-modal";
+@import "components/datepicker";
+@import "components/dropdowns";
+@import "components/dialog";
+@import "components/faq";
+@import "components/filter-btn";
+@import "components/forms";
+@import "components/login";
+@import "components/material";
+@import "components/map";
+@import "components/messages";
+@import "components/modal";
+@import "components/top-navigation"; //always upper than navigarion
+@import "components/navigation";
+@import "components/panel";
+@import "components/profile";
+@import "components/edit-profile";
+@import "components/purchases";
+@import "components/payment";
+@import "components/user-register-form";
+@import "components/step-feature-block";
+@import "components/stories";
+@import "components/story-modal";
+@import "components/sub-navigation";
+@import "components/toastmsg";
+@import "components/tooltip";
+@import "components/view-story";
+/*Layout*/
+
+@import "layout/layout";
+/*Video*/
+
+@import "video/video";

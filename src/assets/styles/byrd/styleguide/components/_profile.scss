@@ -1,0 +1,179 @@
+/**Profile landing*/
+
+.profile-wrapper {
+  position: relative;
+}
+
+.byrd-profile-landing {
+  /**Header*/
+  .byrd-profile-landing-header {
+    border-bottom: 1px solid $white-goose;
+    position: static;
+    margin-top: -15px;
+    /**Blue background*/
+    &:after {
+      position: absolute;
+      z-index: 1;
+      content: '';
+      background-color: $sapphire-blue;
+      height: 154px;
+      width: 100%;
+      top: 0;
+      left: 0;
+    }
+    /**White background-line*/
+    &:before {
+      position: absolute;
+      z-index: 1;
+      content: '';
+      background-color: #DFE5FF;
+      height: 13px;
+      width: 100%;
+      top: 154px;
+      left: 0;
+    }
+    /**User img*/
+    .user-picture {
+      position: relative;
+      z-index: 2;
+      img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 8px solid rgba($white, .75);
+      }
+    }
+    /**Description*/
+    .description {
+      letter-spacing: 0.03px;
+      padding-top: 33px;
+      position: relative;
+      z-index: 2;
+      /**Skills*/
+      .skills-container {
+        font-size: .8125rem;
+        span {
+          height: 23px;
+        }
+      }
+      /**Profile info*/
+      .description-info {
+        margin-top: 30px;
+      }
+      /**Additional text*/
+      .description-text {
+        margin-top: 5px;
+        max-width: 100%;
+        &.word-wrap {
+          word-wrap: break-word;
+        }
+      }
+    }
+  }
+  /**Container with buttons*/
+  .actions-container {
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+    height: 37px;
+    .btn {
+      background-color: transparent;
+      border-radius: 12px;
+      border: 1px solid $white;
+      margin: 0 7px;
+      width: inherit;
+      padding: 7px;
+      height: 37px;
+      width: 113px;
+      color: $white;
+      -webkit-transition: color ease-in-out .25s, border ease-in-out .25s;
+      transition: color ease-in-out .25s, border ease-in-out .25s;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      cursor: pointer;
+      &:hover {
+        border-color: rgba($white, .75);
+        color: rgba($white, .75);
+      }
+    }
+  }
+  /**Body*/
+  .byrd-profile-landing-tabs {
+    /**Tabs*/
+    .tabs {
+      font-size: 1.25rem;
+      padding-top: 1rem;
+      .tab {
+        position: relative;
+        cursor: pointer;
+        &:focus {
+          outline: none !important;
+        }
+        &:after {
+          // content: '';
+          height: 3px;
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          opacity: 0;
+          background-color: $sapphire-blue;
+          transform: translateY(-10px);
+          transition: transform ease-in-out .25s, opacity ease-in-out .25s;
+        }
+        &.active {
+          color: $sapphire-blue;
+          &:after {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+  }
+}
+
+/**Media styles*/
+
+@media screen and (max-width: 767px) {
+  .byrd-profile-landing {
+    .actions-container {
+      margin-top: 22px;
+      justify-content: center !important;
+    }
+    .byrd-profile-landing-header {
+      margin-top: 22px;
+      flex-direction: column !important;
+      .user-picture {
+        text-align: center;
+      }
+      .description {
+        padding-top: 7px;
+        .description-top {
+          flex-direction: column !important;
+          justify-content: center !important;
+          h3 {
+            color: $sapphire-blue;
+          }
+        }
+        .skills-container {
+          margin-left: 0 !important;
+          margin-top: 10px;
+        }
+        .description-info {
+          margin-top: 10px;
+          text-align: center;
+        }
+        .description-text {
+          text-align: center;
+        }
+      }
+    }
+    .byrd-profile-landing-body {
+      .tabs {
+        font-size: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+.badge-accent-8 {
+  @include badge-variant($white-bird);
+}
+
+.badge-mid-blue {
+  @include badge-variant($fresh-fish);
+}
+
+.badge-light-blue {
+  @include badge-variant($tropical-bird);
+}
+
+.badge-good {
+  @include badge-variant($green-two);
+  color: $white !important;
+}
+
+.badge-pro {
+  @include badge-variant($green-one);
+  color: $white-bird !important;
+}
+
+.user-badges {
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+#top-right {
+  z-index: 1;
+  position: absolute;
+  top: 10px;
+  right: calc(5% - 5px);
+  font-weight: 500;
+}

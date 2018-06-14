@@ -1,0 +1,550 @@
+/**Forms with steps*/
+
+.step-form {
+  width: 100%;
+  position: relative;
+  /**Left side*/
+  .sidebar {
+    z-index: 2;
+    position: relative;
+    box-shadow: $byrd-shade-2;
+    background: $early-morning;
+  }
+  /**Top part with logo*/
+  .logo-container {
+    margin: auto;
+    margin-top: 6rem;
+    position: relative;
+    .logo {
+      width: 100%;
+      height: auto;
+      margin-left: 5rem;
+      img {
+        max-width: 95px;
+        width: 100%;
+      }
+    }
+    .title {
+      padding-left: 2rem;
+      font-size: 1.5625rem;
+      letter-spacing: .05rem;
+      color: #FFFFFF;
+    }
+    .sub-title {
+      font-size: 1rem;
+      letter-spacing: .05rem;
+      color: $white-goose;
+      .faded {
+        opacity: 0.5;
+      }
+      p {
+        color: $white-goose;
+        cursor: pointer;
+      }
+    }
+  }
+  /**Part with steps*/
+  .step-container {
+    justify-content: center;
+    padding-top: 1rem;
+    position: relative;
+    margin: auto;
+    display: inline-flex;
+    ol {
+      margin: 0;
+      padding-left: 70px;
+      li {
+        &#progress-form {
+          white-space: nowrap;
+          line-height: 3.5rem;
+          position: relative;
+          color: $white-bird;
+          transition: .25s ease-in-out color;
+          opacity: 0.5;
+          &:before {
+            opacity: 0.5;
+            content: '';
+            position: absolute;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            top: 50%;
+            left: -68px;
+            background-color: $white-bird;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+          }
+          &:not(:first-child):after {
+            opacity: 0.5;
+            content: '';
+            position: absolute;
+            width: 5px;
+            top: -1.35rem;
+            bottom: 2.1rem;
+            left: -64px;
+            background-color: $white-bird;
+          }
+          /* Class to be set before and meanwhile a step is visited */
+          &.active-step {
+            opacity: 1;
+            &:before {
+              opacity: 1;
+              font-family: 'Font Awesome 5 Solid';
+              content: '\f058';
+              color: $white-bird;
+              left: -72px;
+              background-color: transparent;
+              font-size: 1.25rem;
+              width: auto;
+              height: auto;
+              border-radius: 0;
+              z-index: 1;
+            }
+            /* Class to be set after step has been visited */
+            &.visited {
+              &:before {
+                opacity: 1;
+                font-family: 'Font Awesome 5 Solid';
+                content: '\f111';
+                color: $white-bird;
+                left: -4.3rem;
+                background-color: transparent;
+                font-size: 0.875rem;
+                width: auto;
+                height: auto;
+                border-radius: 0;
+                z-index: 1;
+              }
+            }
+            &:not(:first-child) {
+              &:after {
+                content: '';
+                background-color: $white-bird;
+                opacity: 1;
+              }
+            }
+          }
+          &.current-step {
+            color: $white-bird;
+            font-weight: bold;
+            &::after {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  /**Bottom part*/
+  .footer-container {
+    padding-left: 25px;
+    padding-bottom: 1rem;
+    &.tablet {
+      display: none !important;
+    }
+    .content {
+      width: 62%;
+    }
+    .content,
+    .links {
+      font-size: 0.825rem;
+    }
+  }
+  /**Right side*/
+  .main-section {
+    z-index: 1;
+    position: relative;
+    .figure-3 {
+      display: none;
+      width: 129px;
+      height: 53px;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .figure-2 {
+      display: none;
+      width: 260px;
+      height: 113px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  /**Main part with slides(forms)*/
+  .form-container {
+    min-width: 30rem;
+    position: relative;
+    padding: 1rem;
+    border: none;
+    /* contracts */
+    div.contract-solutions {
+      cursor: pointer;
+      width: 100%;
+      .single-contract {
+        &.selected {
+          background-color: $bloody-bird;
+        }
+        .top-section {
+          img {
+            max-width: 100%;
+            height: 100px;
+          }
+        }
+      }
+    }
+    form {
+      .small-p,
+      p {
+        line-height: 1;
+        display: flex;
+        justify-content: left;
+        font-size: 14px;
+        color: $bird-of-prey;
+      }
+      .form-group {
+        margin: 1rem 0;
+        select {
+          &:invalid {
+            color: $bird-of-prey;
+          }
+        }
+        .image-upload,
+        label {
+          margin: calc(10% + 3rem);
+          top: unset;
+        }
+        &.required {
+          &::before,
+          ::after {
+            font-family: 'Font Awesome 5 Solid';
+            transition: color 0.25s ease-out;
+            position: absolute;
+            color: $bird-of-prey;
+            font-size: 1rem;
+            z-index: 2;
+            right: 2.5rem;
+            padding-top: 3.5rem;
+            -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+            content: "\f069";
+            &.ng-pristine.ng-invalid.ng-touched {
+              border-color: $bloody-bird;
+              color: $bloody-bird;
+            }
+          }
+        }
+        .form-control {
+          text-indent: 1rem;
+          padding: 0.35rem 0.55rem;
+          border: 1px solid rgba($grey-goose, .5);
+          -webkit-background-clip: padding-box;
+          background-clip: padding-box;
+          font-size: 1.125rem;
+          font-weight: 500;
+          color: $bird-of-prey !important;
+          height: 3.5rem;
+          &:focus,
+          &:visited,
+          &.ng-dirty {
+            color: $metal-war !important;
+            outline: none;
+            box-shadow: none;
+            border: 1px solid $grey-goose;
+          }
+          &.ng-dirty.ng-invalid.ng-touched {
+            border-color: $bloody-bird;
+          }
+          &.ng-pristine.ng-invalid.ng-touched {
+            border-color: $bloody-bird;
+          }
+        }
+      }
+      .input-group {
+        width: 100%;
+        .form-control:disabled,
+        .form-control[readonly] {
+          background-color: #fff;
+        }
+        .input-group-append {
+          border: 1px solid rgba(205, 209, 228, 0.5);
+          background-clip: padding-box;
+          border-bottom-right-radius: 0.25rem;
+          border-top-right-radius: 0.25rem;
+          height: 3.5rem;
+          .fa-calendar-alt {
+            padding: 1.5rem;
+            color: $bird-of-prey;
+            font-size: 30px;
+            line-height: 0;
+            display: flex;
+          }
+          .fa-asterisk {
+            position: absolute;
+            color: $bird-of-prey;
+            font-size: 1rem;
+            z-index: 2;
+            right: 5.5rem;
+            padding-top: 1rem;
+            display: flex;
+          }
+        }
+      }
+      .byrd-account-validators {
+        mat-progress-spinner {
+          circle {
+            stroke: $dancing-flamingo;
+          }
+          &.spinner {
+            width: 15px !important;
+            height: 15px !important;
+            svg {
+              width: 15px !important;
+              height: 15px !important;
+            }
+          }
+        }
+        .info {
+          line-height: 1;
+          font-size: 14px;
+          color: $bird-of-prey;
+          &.success {
+            color: $green-one;
+          }
+          &.error {
+            color: $red-three;
+          }
+        }
+        i {
+          &.fa-check {
+            color: $green-one;
+          }
+          &.fa-times {
+            color: $red-three;
+          }
+        }
+        ng2-password-strength-bar {
+          ul,
+          #strengthBar {
+            margin: 1rem;
+            display: flex;
+            list-style: none;
+            justify-content: center; // background-color: transparent !important;ads
+            .point {
+              background: transparent;
+              display: inline-block;
+              height: 6px;
+              margin-right: 0px;
+              width: 80px;
+              margin: -3px;
+              border-radius: unset;
+              &.ul#strengthBar.point.last-child {
+                margin: auto;
+              }
+              &#bar0 {
+                border-top-left-radius: 2px;
+                border-bottom-left-radius: 2px;
+              }
+              &:last-child {
+                border-top-right-radius: 2px;
+                border-bottom-right-radius: 2px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .slide-final {
+      max-width: 437px;
+      width: 100%;
+      .logo-animation-container {
+        width: 100%;
+      }
+      .btn {
+        max-width: 210px;
+      }
+    }
+    .slide {
+      visibility: collapse;
+      opacity: 0;
+      transform: scale(.6);
+      position: absolute;
+      transition: .25s ease-out transform, .25s ease-out visibility;
+      small {
+        margin-top: -2rem;
+        opacity: 0;
+        visibility: collapse;
+        transition: .25s ease-in-out opacity, .25s ease-in-out visibility;
+        &.error {
+          visibility: visible;
+          opacity: 1;
+        }
+        &.hint {
+          position: relative;
+          max-width: 437px;
+          width: 100%;
+          font-size: 1rem;
+          font-weight: 100;
+          a {
+            max-width: 100%;
+          }
+        }
+      }
+      &.current-step {
+        min-width: 0;
+        position: relative;
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0) scale(1);
+        small {
+          &.hint {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+      }
+      &.active-step {
+        visibility: collapse;
+        opacity: 0;
+        position: absolute;
+        transform: translateX(0) scale(.6);
+        transition: none;
+      }
+    }
+    .form-group {
+      margin: 1.5rem 0; // &.required:before {
+      //   color: $bloody-bird!important;
+      // }
+    }
+    .title {
+      font-size: 1.5625rem;
+      letter-spacing: .05rem;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      letter-spacing: .05rem;
+      font-weight: 100;
+    }
+  }
+  /**Next, Back buttons*/
+  .next-button,
+  .prev-button {
+    max-width: 163px;
+    width: 100%;
+  }
+} // Register success screen
+.user-register-success {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  .background-gradient {
+    width: 100%;
+    min-height: 100%;
+    background: $early-morning;
+    .login-section {
+      .success-text {
+        font-size: 1.5rem;
+      }
+      button {
+        mat-spinner {
+          width: 30px !important;
+          height: 30px !important;
+          circle {
+            stroke: $princess;
+          }
+          svg {
+            width: 30px !important;
+            height: 30px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+/**Media styles*/
+
+@media screen and (max-width: 991px) {
+  .step-form {
+    .footer-container {
+      display: none !important;
+    }
+    .logo-container {
+      min-height: 240px;
+    }
+    .footer-container.tablet {
+      display: flex !important;
+      max-width: 437px;
+      width: 100%;
+      padding-left: 0;
+      z-index: -1;
+    }
+    .footer-container .content {
+      width: 100%;
+    }
+    .step-container {
+      padding-top: 0;
+    }
+    .step-container .step-list {
+      display: none;
+    }
+    .form-container .slide.current-step {
+      margin-top: 4rem;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .step-form .h-100,
+  .step-form.h-100 {
+    height: auto !important;
+  }
+  .step-form-body {
+    background-color: $white-goose;
+  }
+  .step-form {
+    .sidebar {
+      box-shadow: none;
+      z-index: 1;
+    }
+    .form-container {
+      width: 100%;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    .logo-container {
+      .figure {
+        width: 198px;
+        height: 83px;
+      }
+    }
+    .step-container {
+      .figure-2 {
+        display: none;
+      }
+      .figure-3 {
+        display: none;
+      }
+    }
+    .main-section {
+      .figure-2 {
+        width: 201px;
+        height: 88px;
+        display: block;
+      }
+      .figure-3 {
+        width: 125px;
+        height: 52px;
+        display: block;
+      }
+    }
+    .form-container {
+      min-width: 0;
+      margin-top: 2rem;
+      margin-bottom: 4rem;
+    }
+    .footer-container.tablet {
+      display: none !important;
+    }
+  }
+}

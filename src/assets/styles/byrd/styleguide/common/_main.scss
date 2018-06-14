@@ -1,0 +1,54 @@
+/**Common styles*/
+html {
+  text-rendering: optimizeLegibility;
+  text-rendering: geometricPrecision;
+  font-smooth: always;
+  font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  height: 100%;
+
+  &.overflow-hidden {
+    overflow: hidden!important;
+    position: fixed;
+  }
+}
+
+$font: 'Signika', sans-serif;
+
+body {
+  font-family: $font;
+  height: 100%;
+
+  &.overflow-hidden {
+    overflow: hidden!important;
+  }
+}
+
+/**Min height 100%*/
+.min-h-100 {
+  min-height: 100%;
+}
+
+/*Reset <a> styles*/
+.reset-a {
+  color: $white;
+
+  &:hover {
+    color: $white;
+  }
+
+  &:focus {
+    color: $white;
+  }
+
+  &.active {
+    color: $white;
+  }
+}
+
+/**Hide element*/
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}

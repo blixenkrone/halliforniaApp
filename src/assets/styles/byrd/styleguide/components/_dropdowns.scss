@@ -1,0 +1,31 @@
+.dropdown-menu {
+  cursor: auto !important;
+  font-size: 12px !important;
+  color: $navy-trash !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  min-width: 40% !important;
+  font-weight: 500;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: $zindex-dropdown;
+  display: none; // none by default, but block on "open" of the menu
+  float: left;
+  min-width: $dropdown-min-width;
+  padding: $dropdown-padding-y 0;
+  margin: $dropdown-spacer 0 0; // override default ul
+  font-size: $font-size-base; // Redeclare because nesting can cause inheritance issues
+  color: $body-color;
+  text-align: left; // Ensures proper alignment if parent has it changed (e.g., modal footer)
+  list-style: none;
+  background-color: $dropdown-bg;
+  background-clip: padding-box;
+  border: none; // border: $dropdown-border-width solid $dropdown-border-color;
+  @include border-radius($border-radius);
+  @include box-shadow($dropdown-box-shadow);
+}
+
+#dropdown-filter {
+  display: flex !important;
+}

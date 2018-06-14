@@ -1,0 +1,376 @@
+/**Assignments*/
+
+.byrd-assignment-landing-header {
+  position: relative;
+  min-height: 167px;
+  background-color: $sapphire-blue;
+  border-bottom: 0;
+  &:before {
+    position: absolute;
+    z-index: 1;
+    content: '';
+    background-color: #DFE5FF;
+    height: 13px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  h2 {
+    z-index: 2;
+  }
+}
+
+.assignments {
+  .byrd-assignment-item {
+    label {
+      font-size: .8125rem;
+      color: $bird-of-prey;
+      textarea {
+        font-size: .875rem;
+        letter-spacing: 0.04px;
+        line-height: 30px;
+        resize: none;
+      }
+    }
+    select {
+      color: $greyhound;
+      height: 42px;
+      font-size: .875rem;
+    }
+  }
+  #displayDateInput {
+    font-size: .875rem;
+    color: $greyhound !important;
+    background-color: $white;
+    border: 1px solid $white-goose;
+  }
+  .view-story-info-description {
+    border-top: 1px solid $white-goose;
+  }
+  .assignment-license {
+    border-top: 1px solid $white-goose;
+  }
+}
+
+.byrd-assignments {
+  .byrd-app-heading-search {
+    .btn {
+      border-radius: 12px;
+    }
+  }
+  .byrd-app-heading {
+    margin: 25px 0px 24px 0px;
+  }
+  /**Assignments result block*/
+  .byrd-assignments-result {
+    background-color: $white;
+    border: 1px solid $white-goose;
+    h1 {
+      color: #616577 !important;
+    }
+    /**Result item*/
+    .byrd-assignments-result-item {
+      padding: 1.5rem 40px;
+      border-bottom: 1px solid $white-bird;
+      line-height: 1.5rem;
+      transition: ease-in-out .25s background-color;
+      cursor: pointer;
+      &:hover {
+        background-color: $white-bird;
+      }
+      &.expired {
+        .headline {
+          h4 {
+            color: $bird-of-prey;
+          }
+        }
+        .table-item {
+          color: $bird-of-prey;
+        }
+      }
+      .table-item {
+        color: $metal-war;
+        span {
+          font-size: .8125rem;
+          color: $bird-of-prey;
+          &.bloody-bird {
+            color: $bloody-bird;
+          }
+        }
+        &.company-col-item {
+          text-align: center !important;
+          a {
+            font-size: 0.75rem;
+          }
+          img {
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+      }
+      .close-button {
+        font-size: 2rem;
+        color: $bloody-bird;
+        width: 100%;
+      }
+      .headline {
+        h4 {
+          word-break: break-all;
+          color: $sapphire-blue;
+        }
+        width: 100%;
+      }
+      /**Result item title*/
+      h5 {
+        margin-bottom: 0;
+        line-height: 2rem;
+      }
+      /**Button`s block*/
+      .byrd-assignments-result-buttons {
+        .btn {
+          text-align: center;
+          width: inherit;
+          margin: 0 0.5rem;
+        }
+      }
+      /**Block with text*/
+      .byrd-assignments-result-content {
+        padding: 0 45px;
+      }
+      /**Block with footer*/
+      .byrd-assignments-result-footer {
+        .byrd-assignments-result-footer-item {
+          margin-right: 1rem;
+          cursor: pointer;
+          .fa-reply {
+            font-size: 15px;
+            margin-top: 3px;
+          }
+        }
+      }
+      /**Main image*/
+      .byrd-assignments-result-img {
+        text-align: left;
+        position: relative;
+        img {
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+      }
+      /**Block with date, expire*/
+      .byrd-assignments-result-date,
+      .byrd-assignments-result-expire {
+        font-size: 0.8125rem;
+      }
+    }
+  }
+  /**Assignments item*/
+  // .byrd-assignments-item {
+  //   width: 100%;
+  //   margin-bottom: 1rem;
+  //   .success-btn {
+  //     color: $white !important;
+  //   }
+  //   .filter-btn {
+  //     height: auto;
+  //     padding-right: 0;
+  //   }
+  //   .datepicker-split {
+  //     margin: 0 !important;
+  //   }
+  //   input {
+  //     height: 46px;
+  //     border: none;
+  //     outline: none;
+  //     min-width: 300px;
+  //     text-indent: 10px;
+  //     color: $bird-of-prey;
+  //     font-size: 0.8125rem;
+  //     &::-webkit-input-placeholder {
+  //       color: $bird-of-prey;
+  //     }
+  //     &::-moz-placeholder {
+  //       color: $bird-of-prey;
+  //     }
+  //     &:-ms-input-placeholder {
+  //       color: $bird-of-prey;
+  //     }
+  //     &:-moz-placeholder {
+  //       color: $bird-of-prey;
+  //     }
+  //   }
+  // }
+}
+
+.edit-datepicker.non-empty #hidden-input {
+  background-color: #F3F7F9 !important;
+  color: #ff565d !important;
+}
+
+/**Media*/
+
+@media screen and (max-width: 1199px) {
+  .byrd-assignments {
+    .byrd-assignments-result {
+      .byrd-assignments-result-item {
+        .byrd-assignments-result-img {
+          img {
+            width: 100px;
+            height: 100px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .assigments.byrd-profile-landing {
+    .view-story-info {
+      margin-bottom: 1.5rem !important;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .license-type {
+    .col-md-6 {
+      padding: 0 !important;
+    }
+  }
+  .assigments.byrd-profile-landing {
+    .byrd-profile-item {
+      padding: 15px !important;
+      .col-md-6 {
+        padding: 0 !important;
+      }
+    }
+    .assigment-header-profile,
+    .view-story-info-title,
+    .view-story-info-description,
+    .assigment-license {
+      text-align: center;
+    }
+    .view-story-info-header {
+      flex-direction: column !important;
+      justify-content: center;
+      .assigment-header-profile {
+        justify-content: center;
+      }
+      .assigment-header-c-date {
+        text-align: center;
+        margin-left: 0 !important;
+      }
+    }
+  }
+  .byrd-assignments {
+    padding: 0 !important;
+    .byrd-app-heading-search {
+      padding: 0 1.5rem !important;
+      .btn {
+        display: none;
+      }
+    }
+    .byrd-app-heading {
+      padding: 10px 1.5rem;
+    }
+    .byrd-assignments-result {
+      margin-top: 1rem !important;
+      box-shadow: none;
+      border-radius: 0;
+      .byrd-assignments-result-item {
+        padding: 1.5rem;
+        .headline {
+          text-align: center !important;
+          margin-bottom: 1rem;
+        }
+        .table-item {
+          text-align: left !important;
+          &.company-col-item {
+            a {
+              display: flex;
+              justify-content: center;
+            }
+            img {
+              height: 10rem;
+            }
+          }
+        }
+        .table-item.non-mobile {
+          display: none;
+        }
+        .byrd-assignments-result-img {
+          text-align: left;
+        }
+        .byrd-assignments-result-content {
+          margin: 1rem 0;
+          justify-content: center !important;
+          align-items: center !important;
+        }
+      }
+    }
+    .byrd-assignments-item {
+      flex-direction: column;
+      margin-bottom: 2rem;
+      h2 {
+        margin-bottom: 2rem;
+      }
+      input {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .byrd-assignments {
+    padding: 0 !important;
+    .byrd-app-heading-search {
+      padding: 0 1.5rem !important;
+      .btn {
+        display: none;
+      }
+    }
+    .byrd-app-heading {
+      padding: 10px 1.5rem;
+    }
+    .byrd-assignments-result {
+      margin-top: 1rem !important;
+      box-shadow: none;
+      border-radius: 0;
+      .byrd-assignments-result-item {
+        padding: 1.5rem;
+        .headline {
+          text-align: left !important;
+          margin-bottom: 1rem;
+        }
+        .table-item {
+          text-align: left !important;
+        }
+        .table-item.non-mobile {
+          display: none;
+        }
+        .byrd-assignments-result-img {
+          text-align: left;
+        }
+        .byrd-assignments-result-content {
+          margin: 1rem 0;
+          justify-content: center !important;
+          align-items: center !important;
+        }
+      }
+    }
+    .byrd-assignments-item {
+      flex-direction: column;
+      margin-bottom: 2rem;
+      h2 {
+        margin-bottom: 2rem;
+      }
+      input {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}

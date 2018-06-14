@@ -1,0 +1,52 @@
+.btn:focus,
+.btn:hover,
+.btn:active {
+  text-decoration: none !important;
+  outline: none !important;
+  outline: 0 !important;
+}
+
+.sub-nav.btn {
+  padding-left: 15px;
+  &:active {
+    box-shadow: none !important;
+    outline: none !important;
+    outline: 0 !important;
+  }
+  &:hover {
+    text-decoration: underline !important;
+    outline: none !important;
+    outline: 0 !important;
+  }
+}
+
+button:focus {
+  outline: 0 !important;
+  box-shadow: none !important;
+}
+
+.sub-navigation {
+  box-shadow: none !important;
+  color: $gay-flame;
+  cursor: pointer;
+  outline: none !important;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  width: auto;
+  height: auto;
+  -webkit-transition: background-color 0.25s ease-out !important;
+  -moz-transition: background-color 0.25s ease-out !important;
+  -o-transition: background-color 0.25s ease-out !important;
+  transition: background-color 0.25s ease-out !important;
+  &:hover {
+    background-color: inherit;
+  }
+}
+
+.mat-button {
+  color: $gay-flame;
+}
+

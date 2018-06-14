@@ -1,0 +1,186 @@
+/**Purchases*/
+
+.byrd-purchases {
+  /**purchases result block*/
+  .byrd-purchases-result {
+    border: 1px solid $white-goose;
+    background-color: $white;
+    h1 {
+      color: $greyhound !important;
+    }
+    /**Result item*/
+    .byrd-purchases-result-item {
+      padding: 1rem;
+      border-bottom: 1px solid $white-bird;
+      line-height: 1.5rem;
+      transition: ease-in-out .25s background-color;
+      cursor: pointer;
+      &:hover {
+        background-color: $white-bird;
+      }
+      .table-item {
+        color: $metal-war;
+        span {
+          font-size: .8125rem;
+          color: $bird-of-prey;
+          &.bloody-bird {
+            color: $bloody-bird;
+          }
+        }
+        i {
+          font-size: 20px;
+          color: $sapphire-blue;
+        }
+      }
+      .headline {
+        h4 {
+          word-break: break-all;
+          color: $sapphire-blue;
+        }
+        width: 100%;
+      }
+      /**Result item title*/
+      h5 {
+        margin-bottom: 0;
+        line-height: 2rem;
+      }
+      /**Button`s block*/
+      .byrd-purchases-result-buttons {
+        .btn {
+          text-align: center;
+          width: inherit;
+          margin: 0 0.5rem;
+        }
+      }
+      /**Block with text*/
+      .byrd-purchases-result-content {
+        padding: 0 70px;
+      }
+      /**Block with footer*/
+      .byrd-purchases-result-footer {
+        .byrd-purchases-result-footer-item {
+          margin-right: 1rem;
+          cursor: pointer;
+          .fa-reply {
+            font-size: 15px;
+            margin-top: 3px;
+          }
+        }
+      }
+      /**Main image*/
+      .byrd-purchases-result-img {
+        text-align: left;
+        position: relative;
+        img {
+          width: 160px;
+          height: auto;
+          object-fit: cover;
+          max-height: 350px; // max-width: 100%;
+          border-radius: 6px;
+        }
+      }
+      /**Block with date, expire*/
+      .byrd-purchases-result-text {
+        font-size: 0.8125rem;
+      }
+    }
+  }
+  /**purchases item*/
+  .byrd-purchases-item {
+    width: 100%;
+    margin-bottom: 1rem;
+    .filter-btn {
+      height: auto;
+      padding-right: 0;
+    }
+    .datepicker-split {
+      margin: 0 !important;
+    }
+    input {
+      height: 46px;
+      border: none;
+      outline: none;
+      min-width: 300px;
+      text-indent: 10px;
+      color: $bird-of-prey;
+      font-size: 0.8125rem;
+      &::-webkit-input-placeholder {
+        color: $bird-of-prey;
+      }
+      &::-moz-placeholder {
+        color: $bird-of-prey;
+      }
+      &:-ms-input-placeholder {
+        color: $bird-of-prey;
+      }
+      &:-moz-placeholder {
+        color: $bird-of-prey;
+      }
+    }
+  }
+}
+
+/**Media*/
+
+@media screen and (max-width: 1199px) {
+  .byrd-purchases {
+    .byrd-purchases-result {
+      .byrd-purchases-result-item {
+        .byrd-purchases-result-img {
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .byrd-purchases {
+    .byrd-purchases-result {
+      .byrd-purchases-result-item {
+        padding: 1rem;
+        .byrd-purchases-result-buttons .btn {
+          margin: 1rem 0 0 0;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .byrd-purchases {
+    .byrd-purchases-result {
+      .byrd-purchases-result-item {
+        .headline {
+          text-align: center !important;
+          margin: 1rem 0;
+        }
+        .table-item {
+          text-align: center !important;
+          word-break: break-word;
+        }
+        .byrd-purchases-result-img {
+          text-align: center;
+        }
+        .byrd-purchases-result-content {
+          margin: 1rem 0;
+          justify-content: center !important;
+          align-items: center !important;
+        }
+      }
+    }
+    .byrd-purchases-item {
+      flex-direction: column;
+      margin-bottom: 2rem;
+      h2 {
+        margin-bottom: 2rem;
+      }
+      input {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+}

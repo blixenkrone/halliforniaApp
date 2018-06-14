@@ -1,0 +1,550 @@
+/**Mapboxgl popup*/
+
+.mapboxgl-popup-content {
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 0;
+  .mapboxgl-popup-close-button {
+    z-index: 1;
+    padding: 3px;
+    margin: 7px;
+    font-size: 2rem;
+    transition: ease-in-out .25s transform;
+    background-color: rgba($white-bird, .6);
+    border-radius: 6px;
+    &:hover {
+      background-color: rgba($white-bird, .6);
+      transform: scale(1.2);
+    }
+  }
+  .byrd-map-dialog {
+    width: 360px;
+    .thumbnail {
+      object-fit: cover;
+      width: 100%;
+      height: 225px;
+    }
+  }
+}
+
+/**Dialog*/
+
+.byrd-dialog {
+  position: relative;
+  color: $white;
+  .byrd-fullscreen-img {
+    background-color: $black;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    img {
+      padding: 4rem;
+      height: auto;
+      max-height: 100vh;
+      max-width: 100%;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  /**Fullscreen button*/
+  .fa-expand {
+    cursor: pointer;
+    user-select: none;
+    position: absolute;
+    right: -0.25rem;
+    left: auto;
+    font-size: 1.254rem;
+    z-index: 1;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  /**Back fullscreen button*/
+  .fa-times {
+    padding: 4rem;
+    cursor: pointer;
+    position: absolute;
+    right: 6%;
+    font-size: 2.5rem;
+    top: 50px;
+    z-index: 1;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  /*For reset password in login*/
+  &.expire-dialog {
+    background-color: $navy-trash;
+    height: 300px;
+    width: 400px;
+  }
+  &.reauth-dialog {
+    background-color: $navy-trash;
+    width: 400px;
+    height: 400px;
+    #byrd-login-img {
+      max-width: 125px;
+      width: 100%;
+    }
+    .bloody-bird-forms {
+      width: 100%;
+      padding: 0 1rem;
+    }
+  }
+  /*For reauth dialog*/
+  &.login-dialog {
+    background-color: $navy-trash;
+    width: 400px;
+    height: 400px;
+    #byrd-login-img {
+      max-width: 125px;
+      width: 100%;
+    }
+    .bloody-bird-forms {
+      width: 100%;
+      padding: 0 1rem;
+    }
+  }
+  /**Buttons container*/
+  .byrd-dialog-buttons {
+    .btn {
+      background-color: transparent;
+      border-radius: 12px;
+      border: 1px solid $suburban-bird;
+      margin: 0 7px;
+      width: inherit;
+      padding: 7px;
+      height: 35px;
+      color: $suburban-bird;
+      transition: color ease-in-out .25s, border ease-in-out .25s;
+      align-items: center;
+      &:hover {
+        color: $white;
+        border-color: $white;
+      }
+      cursor: pointer;
+      span {
+        margin: 0 2px;
+      }
+    }
+  }
+  /**Main image*/
+  .byrd-dialog-main-img {
+    max-width: 640px;
+    width: 100%;
+    object-fit: cover;
+  }
+  /*Carousel*/
+  .byrd-carousel {
+    max-width: 640px; // max-height: 100%;
+    width: 100%;
+    object-fit: cover;
+    &.byrd-fullscreen-img {
+      max-width: 100%;
+      .carousel {
+        position: relative;
+        display: flex;
+      }
+      img {
+        vertical-align: middle;
+        border-style: none;
+        object-fit: cover;
+        max-width: 100%;
+        max-height: 100vh;
+      }
+    }
+    ngb-carousel {
+      .carousel-control-next,
+      .carousel-control-prev {
+        width: 5%; // span.carousel-control-next-icon {
+        //   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http: //www.w3.org/2000/svg' f…3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E");
+        //   ;
+        // }
+        // span.carousel-control-prev-icon {
+        //   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#FF5070' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E");
+        //   /* icons next prev */
+        //   // background-image: none;
+        //   // font-family: 'FontAwesome';
+        //   // content: "\f138";
+        // }
+      }
+    }
+    .carousel {
+      position: inherit;
+      display: flex;
+    }
+    .carousel-indicators li {
+      border-radius: 5px;
+      width: 8px;
+      height: 8px;
+    }
+    .carousel-indicators {
+      opacity: 1;
+      bottom: 90%;
+      z-index: 20;
+      .indicators-hovered {
+        opacity: 1;
+      }
+      .active {
+        background-color: $gay-flame;
+      }
+    }
+    img {
+      vertical-align: middle;
+      border-style: none;
+      object-fit: cover;
+      max-width: 640px;
+      max-height: 100%;
+    }
+  }
+  /**Main video*/
+  .byrd-dialog-main-video {
+    // width: 920px;
+    height: 800px;
+    vg-player video {
+      width: 100%;
+      height: auto;
+    }
+    vg-overlay-play {
+      .overlay-play-container.vg-icon-play_arrow {
+        width: calc(100%);
+        height: calc(100%);
+        &::before {
+          font-family: 'Font Awesome 5 Solid';
+          content: "\f04b";
+        }
+      }
+      .vg-overlay-play {
+        width: 20%;
+        height: 20%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    /**Video controls bar*/
+    vg-controls {
+      background-color: $sapphire-blue !important;
+      /**Curent time*/
+      vg-time-display {
+        font-family: $font;
+        font-size: 0.875rem;
+        color: $white;
+        font-weight: 700;
+      }
+      /**Volume controll*/
+      vg-volume {
+        .volumeBar {
+          outline: none;
+          .volumeBackground {
+            background-color: rgba($white, .5);
+            border-radius: 2px;
+            height: 5px;
+            .volumeValue {
+              border-top-left-radius: 2px;
+              border-bottom-left-radius: 2px;
+            }
+          }
+        }
+      }
+      /**Duration line container*/
+      vg-scrub-bar {
+        .scrubBar {
+          outline: none;
+        }
+      }
+      /**Progress line*/
+      vg-scrub-bar-current-time {
+        .background {
+          background-color: $dancing-flamingo;
+          border: none;
+          z-index: 1;
+        }
+        .slider {
+          z-index: 1;
+        }
+      }
+    }
+  }
+  /**Dialog hovering block*/
+  .byrd-dialog-ninjablock {
+    padding: 1rem;
+    opacity: 0;
+    visibility: collapse;
+    transform: translateY(47px);
+    width: 100%;
+    z-index: 15;
+    bottom: 0;
+    position: absolute;
+    background-color: $sapphire-blue;
+    transition: transform ease-in-out .25s, opacity ease-in-out .25s, visibility ease-in-out .25s;
+    &:hover {
+      z-index: 15;
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    &.video-container {
+      bottom: 50px;
+    }
+    /*Dialog author*/
+    .byrd-dialog-author {
+      /**Dialog author image*/
+      .byrd-dialog-author-image {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+      }
+      /**Dialog author information*/
+      .byrd-dialog-author-info {
+        width: calc(100% - 50px);
+        margin-left: 1rem;
+        /**Dialog date*/
+        .byrd-dialog-author-date {
+          font-size: 0.8125rem;
+        }
+        /**Dialog title*/
+        .byrd-dialog-author-title {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          width: calc(100% - 1rem);
+          font-weight: 400;
+          font-size: 1.125rem;
+          line-height: 1.375rem;
+          margin-bottom: 0;
+          font-family: $font;
+        }
+        /**Dialog author name*/
+        .byrd-dialog-author-name {
+          font-size: 0.8125rem;
+          .byrd-dialog-author-name-property {
+            font-weight: 700;
+            margin: 0 3px;
+            span {
+              font-weight: 400;
+            }
+          }
+        }
+      }
+    }
+  }
+  /**Dialog close button*/
+  .byrd-dialog-close {
+    img {
+      width: 20px;
+      height: auto;
+    }
+    width: auto;
+    height: auto;
+    border: none;
+    padding: 0;
+    z-index: 2;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: transparent;
+    cursor: pointer;
+    &.override-videoplayer {
+      z-index: 1000;
+    }
+  }
+  /**Dialog footer part*/
+  .byrd-dialog-footer {
+    backface-visibility: hidden;
+    position: relative;
+    z-index: 2;
+    padding: 13px 20px;
+    background-color: $city-bird;
+    min-height: 47px;
+    /**Verify message*/
+    .byrd-dialog-verified {
+      img {
+        margin-right: 17px;
+      }
+      span {
+        font-size: 1rem;
+      }
+    }
+    /**Action icons*/
+    .byrd-dialog-actions {
+      .byrd-dialog-actions-item {
+        span {
+          font-size: 1rem;
+        }
+        img {
+          margin-right: 20px;
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
+
+/**Material fix*/
+
+.mat-dialog-container {
+  background-color: transparent !important;
+  padding: 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  height: auto !important;
+  margin: 30px auto !important;
+}
+
+.cdk-overlay-pane {
+  // height: inherit; overlays too much of height 
+}
+
+.cdk-global-overlay-wrapper {
+  pointer-events: all !important;
+  overflow: scroll !important;
+  z-index: auto !important;
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, .788);
+}
+
+.cdk-overlay-backdrop {
+  position: fixed !important;
+}
+
+/**Media styles*/
+
+@media screen and (max-width: 991px) {
+  .byrd-dialog {
+    .fa-expand-arrows-alt {
+      bottom: 129px;
+    }
+    .byrd-dialog-ninjablock {
+      .byrd-dialog-author {
+        margin-bottom: 13px;
+      }
+    }
+    .byrd-dialog-close {
+      img {
+        width: 20px;
+      }
+    }
+    .byrd-dialog-footer {
+      .byrd-dialog-actions {
+        .byrd-dialog-actions-item {
+          img {
+            margin-right: 10px;
+            margin-left: 10px;
+          }
+          span {
+            font-size: 0.875rem;
+          }
+          &:nth-child(1) {
+            img {
+              width: 15px;
+            }
+          }
+          &:nth-child(2) {
+            img {
+              width: 18px;
+            }
+          }
+          &:nth-child(3) {
+            img {
+              width: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cdk-overlay-pane {
+    max-width: 100vw !important;
+  }
+  .byrd-dialog {
+    &.login-dialog {
+      width: 255px;
+    }
+    .byrd-dialog-main-video {
+      height: 275px;
+      vg-controls {
+        vg-scrub-bar-current-time {
+          .slider {
+            height: 12px;
+            width: 12px;
+            margin-top: -4px;
+            margin-left: -4px;
+          }
+        }
+        vg-play-pause,
+        vg-time-display,
+        vg-mute,
+        vg-fullscreen {
+          width: 30px;
+        }
+        vg-volume {
+          width: 40px;
+          margin: 0 10px;
+          .volumeKnob {
+            width: 12px;
+            height: 12px;
+            border-radius: 12px;
+            margin-left: -5px;
+          }
+        }
+        vg-scrub-bar {
+          margin: 0 15px;
+        }
+      }
+    }
+    .byrd-dialog-footer {
+      flex-direction: column;
+    }
+  }
+  .mat-dialog-container {
+    max-width: 100vw !important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .mapboxgl-popup-content {
+    .byrd-map-dialog {
+      width: 250px;
+    }
+  }
+  .byrd-dialog.message-dialog {
+    .message-dialog-header {
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+  }
+  .byrd-dialog {
+    .fa-expand-arrows-alt {
+      bottom: 182px;
+    }
+    .byrd-dialog-ninjablock {
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      .byrd-dialog-author {
+        flex-direction: column !important;
+      }
+    }
+    .byrd-dialog-footer {
+      .byrd-dialog-verified {
+        img {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

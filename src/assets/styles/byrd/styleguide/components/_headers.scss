@@ -1,0 +1,135 @@
+.byrd-app-heading {
+  border-bottom: solid 1px #CDD1E4;
+  padding: 10px 0px;
+  margin: 25px 0px 15px 0px;
+  h1 {
+    font-size: 36px;
+    color: #143A6F;
+  }
+  p {
+    font-size: 18px;
+    color: $greyhound;
+    margin: 0px;
+  }
+}
+
+.byrd-app-heading-search {
+  input {
+    height: 50px;
+    max-width: 300px;
+    width: 100%;
+    border-color: none;
+    padding: 5px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    font-size: 18px;
+    &:hover,
+    &:active,
+    &:focus {
+      color: #495057;
+      background-color: #fff;
+      border-color: none;
+      outline: 0;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+  }
+}
+
+.byrd-app-subnavigation {
+  margin-bottom: 15px;
+  .item {
+    background: none !important;
+    border: none !important;
+    text-decoration: none !important;
+    padding: 0px;
+    margin-right: 25px;
+    font-size: 20px;
+    outline: none !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+    color: $suburban-bird;
+    cursor: pointer;
+    outline: none !important;
+    display: inline-block;
+    text-align: left;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    -webkit-transition: background-color 0.25s ease-out !important;
+    -moz-transition: background-color 0.25s ease-out !important;
+    -o-transition: background-color 0.25s ease-out !important;
+    transition: background-color 0.25s ease-out !important;
+    &:focus,
+    &:hover,
+    &.active {
+      text-decoration: none !important;
+      outline: none !important;
+      outline: 0 !important;
+      color: $sapphire-blue;
+    }
+  }
+}
+
+.byrd-app-filters {
+  &-item {
+    color: #365E78;
+    cursor: pointer;
+    padding-left: 0px !important;
+    text-align: left;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: 500;
+    -webkit-transition: background-color 0.25s ease-out !important;
+    transition: background-color 0.25s ease-out !important;
+    position: relative;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    vertical-align: middle;
+    &-right {
+      @include media-breakpoint-up(md) {
+        position: absolute;
+        right: 0px;
+      }
+    }
+    .clear-filters {
+      color: #005F89 !important;
+      margin-right: 0px !important;
+    }
+    &-btn {
+      margin-bottom: 5px;
+      background: none !important;
+      border: none !important;
+      text-decoration: none !important;
+      padding: 0px;
+      margin-right: 25px;
+      font-size: 16px;
+      outline: none !important;
+      outline: 0 !important;
+      box-shadow: none !important;
+      color: #97B4C7;
+      cursor: pointer;
+      outline: none !important;
+      display: inline-block;
+      text-align: left;
+      white-space: nowrap;
+      vertical-align: middle;
+      user-select: none;
+      transition: background-color 0.25s ease-out !important;
+      &:focus,
+      &:hover,
+      &.active {
+        text-decoration: none !important;
+        outline: none !important;
+        outline: 0 !important;
+        color: #005F89;
+      }
+    }
+  }
+}

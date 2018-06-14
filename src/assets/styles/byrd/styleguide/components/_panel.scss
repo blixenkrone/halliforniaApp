@@ -1,0 +1,104 @@
+/**Byrd panel wrapper*/
+.byrd-field {
+  position: relative;
+  padding: 3.5rem!important;
+
+  /**Blog post author*/
+  .byrd-panel-author {
+    margin-top: 2rem;
+
+    /**Blog post author image*/
+    .byrd-panel-author-image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    /**Blog post author information*/
+    .byrd-panel-author-info {
+      margin-left: 1rem;
+
+      /**Blog post date*/
+      .byrd-panel-author-date {
+        font-size: .8rem;
+        font-weight: 100;
+      }
+    }
+  }
+
+  /**Panel main image*/
+  .panel-header-image {
+    max-height: 254px;
+    padding: 0;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 0.75rem;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  /**Byrd panel*/
+  .byrd-panel {
+    margin-bottom: 2.3rem;
+    box-shadow: $byrd-shade-2;
+    border-radius: 1rem;
+
+    /**Panel title*/
+    .byrd-panel-heading {
+      padding: 2rem;
+      color: $white;
+      background-image: $night-ocean;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+
+      h3 {
+        color: $white;
+        margin-bottom: 0;
+      }
+    }
+
+    /**Panel main section*/
+    .byrd-panel-body {
+      padding: 2rem;
+      background-color: white;
+      color: $stale;
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+    }
+  }
+}
+
+/**Byrd panel shadow*/
+.panel-shadow {
+  box-shadow: $byrd-shade-2;
+}
+
+/**Media styles*/
+@media screen and (max-width: 767px) {
+  .byrd-field {
+    padding: 0 0 3.5rem!important;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .byrd-field {
+
+    .byrd-panel-author {
+
+      .byrd-panel-author-info {
+        margin-left: .25rem;
+      }
+
+      .byrd-panel-author-image {
+        height: 40px;
+        width: 40px;
+      }
+    }
+  }
+}

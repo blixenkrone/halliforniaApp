@@ -1,0 +1,218 @@
+/**View story*/
+
+.byrd-view-story {
+  margin-top: 34px;
+  .byrd-fullscreen-img {
+    background-color: $black;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1001;
+    img {
+      height: auto;
+      max-height: 100vh;
+      max-width: 100%;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  /**Back fullscreen button*/
+  .fa-times {
+    color: $white;
+    cursor: pointer;
+    position: absolute;
+    right: 6%;
+    font-size: 1.5rem;
+    top: 50px;
+    z-index: 1;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  /**View story info*/
+  .view-story-info {
+    border: 1px solid $white-goose;
+    /**View story header*/
+    .view-story-info-header {
+      img {
+        cursor: pointer;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+      .view-story-info-header-name {
+        font-size: 1.125rem;
+      }
+      .view-story-info-header-displayname {
+        font-size: 0.8125rem;
+      }
+      .view-story-info-header-skills {
+        font-size: 0.8125rem;
+      }
+      .view-story-info-header-date {
+        font-size: 1.125rem;
+      }
+      .view-story-info-header-date-title {
+        font-size: 0.8125rem;
+      }
+    }
+    /**View story title*/
+    .view-story-info-title {
+      font-size: 1.25rem;
+    }
+    /**Source file */
+    .view-story-info-source {
+      position: relative;
+      /**Fullscreen button*/
+      .fa-expand {
+        color: $white;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        font-size: 1rem;
+        bottom: 0;
+        z-index: 1;
+        padding: 5px;
+        border-top-left-radius: 0;
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+      .byrd-carousel {
+        max-width: 100%;
+        max-height: 480px;
+        width: 100%;
+        object-fit: cover;
+        .carousel {
+          position: relative;
+          &.slide {
+            outline: none;
+          }
+        }
+        .carousel-indicators li {
+          border-radius: 5px;
+          width: 8px;
+          height: 8px;
+        }
+        .carousel-indicators {
+          opacity: 1;
+          bottom: 90%;
+          z-index: 1;
+          .indicators-hovered {
+            opacity: 1;
+          }
+          .active {
+            background-color: $gay-flame;
+          }
+        }
+      }
+      img {
+        max-height: 440px;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        max-width: 100%;
+        &:focus {
+          outline: none;
+          border: 0;
+        }
+      }
+      vg-player {
+        cursor: pointer;
+        background-color: $black;
+        max-width: 100%;
+        width: 100%;
+        max-height: 100%;
+        height: 100%;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
+        video {
+          object-fit: cover;
+        }
+      }
+    }
+    /**View story description*/
+    .view-story-info-description {
+      span {
+        font-size: 0.8125rem;
+      }
+    }
+    /**View story footer*/
+    .view-story-info-footer {
+      border-top: 1px solid $white-goose;
+    }
+  }
+  /**View story map part*/
+  .view-story-sidebar {
+    .view-story-sidebar-button {
+      button {
+        width: 145px;
+      }
+    }
+    /**Map container*/
+    .view-story-sidebar-container {
+      border: 1px solid $white-goose;
+      .row {
+        border-bottom: 1px solid $white-goose;
+        .small-span {
+          font-size: 0.8125rem;
+        }
+        div {
+          word-wrap: break-word;
+        }
+        &.badge {
+          border-bottom-left-radius: 0px;
+          border-bottom-right-radius: 0px;
+        }
+      }
+      /**Map*/
+      .map-container {
+        width: 100%;
+        height: 240px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .byrd-view-story {
+    .view-story-mappart {
+      padding-left: 0 !important;
+      margin-bottom: 1.5rem !important;
+      .view-story-mappart-button {
+        justify-content: center !important;
+      }
+    }
+    .view-story-info {
+      margin-bottom: 1.5rem !important;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .byrd-view-story {
+    .view-story-mappart {
+      border-left: none;
+      border-right: none;
+      margin-bottom: 1.5rem !important;
+      .view-story-mappart-container {
+        border-radius: 0;
+        .row {
+          text-align: center;
+        }
+        .map-row {
+          text-align: left;
+        }
+      }
+    }
+    .view-story-info {
+      border-left: none;
+      border-right: none;
+      border-radius: 6px;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+.chats-modal {
+padding: 0px;
+margin: 0px;
+
+}
+
+.chats {
+	height: 450px;
+	.chat {
+		cursor: pointer;
+		padding: 15px;
+		.full-name {
+			    font-size: 16px;
+		}
+		.message-text {
+			font-size: 16px;
+			margin-bottom: 0px;
+			max-width: 360px;
+		}
+
+		.message-date {
+			margin-bottom: 0px;
+			color: $grey-goose;
+		}
+	&:hover {
+		background-color: $white-bird;
+	}
+	}
+}
+
+
+
+
+
+.byrd-modal {
+	.heading {
+		padding: 15px;
+		h2 {
+			margin-bottom: 0px;
+			line-height: 36px;
+		}
+		.modal-closer {
+			font-size: 20px;
+    		cursor: pointer;
+    		color: $grey-goose;
+    		i {
+			margin-top: 8px;
+    		}
+		}
+	}
+}

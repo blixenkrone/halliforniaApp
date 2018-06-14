@@ -1,0 +1,18 @@
+.mat-tooltip {
+  text-align: center !important;
+  font-family: $font !important;
+  font-size: 13px;
+  background: $sapphire-blue !important;
+  background-color: $sapphire-blue !important;
+  border-radius: 6px !important;
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+  cursor: pointer !important;
+  height: 26px !important;
+  margin: 8px !important;
+  max-width: 100% !important;
+}
+
+.cdk-overlay-pane.mat-tooltip-panel {
+  height: auto;
+}

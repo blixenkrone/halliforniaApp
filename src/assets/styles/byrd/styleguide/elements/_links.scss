@@ -1,0 +1,32 @@
+/**Links constructor*/
+
+@mixin link-byrd($color, $hover) {
+  color: $color;
+  cursor: pointer;
+  -webkit-transition: background-color 0.25s ease-out;
+  -moz-transition: background-color 0.25s ease-out;
+  -o-transition: background-color 0.25s ease-out;
+  transition: background-color 0.25s ease-out;
+  &:hover,
+  &:active {
+    color: $hover !important;
+  }
+}
+
+/**Links styles*/
+
+a:not([href]):not([tabindex]) {
+  @include link-byrd($suburban-bird, $gay-flame);
+}
+
+.gay-flame-link-light {
+  @include link-byrd($bird-of-prey, $gay-flame);
+}
+
+.dancing-flamingo-link-grey {
+  @include link-byrd($greyhound, $dancing-flamingo);
+}
+
+.gay-flame-dropdown-item {
+  @include link-byrd($greyhound, $bird-of-prey);
+}

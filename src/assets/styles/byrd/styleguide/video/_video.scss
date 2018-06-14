@@ -1,0 +1,115 @@
+/**Video*/
+
+.story-video-thumbnail {
+  /**Big play button in the center*/
+  vg-overlay-play {
+    .vg-overlay-play {
+      width: 80px;
+      height: 80px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      .overlay-play-container.vg-icon-play_arrow {
+        &::before {
+          font-family: 'Font Awesome 5 Solid';
+          content: "\f04b";
+        }
+      }
+    }
+  }
+  /**Video controls bar*/
+  vg-controls {
+    height: 30px;
+    background-color: rgba($city-bird, .75);
+    backface-visibility: hidden;
+    /**Progress line*/
+    vg-scrub-bar-current-time {
+      .background {
+        background-color: $dancing-flamingo;
+        border: none;
+        z-index: 1;
+      }
+      .slider {
+        z-index: 1;
+      }
+    }
+    /**Duration line*/
+    vg-scrub-bar-buffering-time {
+      background-color: $white;
+      opacity: .5;
+      border-radius: 2px;
+    }
+    /**Curent time*/
+    vg-time-display {
+      width: 50px;
+      height: 30px;
+    }
+    /**Volume controll*/
+    vg-volume {
+      width: 40px;
+      height: 30px;
+      margin: 0 15px 0 10px;
+      .volumeBar {
+        outline: none;
+        .volumeBackground {
+          background-color: rgba($white, .5);
+          border-radius: 2px;
+          height: 5px;
+          .volumeValue {
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+          }
+        }
+      }
+    }
+    /**Time*/
+    vg-time-display {
+      font-size: 0.875rem;
+      width: 40px;
+      height: 30px;
+      line-height: 30px;
+    }
+    /**Mute, play-pause, fullscreen*/
+    vg-mute,
+    vg-play-pause,
+    vg-fullscreen {
+      width: 30px;
+      height: 30px;
+    }
+    /**Duration line*/
+    vg-scrub-bar {
+      outline: none;
+      height: 30px;
+      .scrubBar {
+        outline: none;
+      }
+    }
+  }
+}
+
+
+/**Media*/
+
+@media screen and (max-width: 575px) {
+  .story-video-thumbnail {
+    vg-controls {
+      vg-volume {
+        width: 25px;
+        .volumeKnob {
+          width: 12px;
+          height: 12px;
+          border-radius: 12px;
+          margin-left: -5px;
+        }
+      }
+      vg-scrub-bar-current-time {
+        .slider {
+          width: 12px;
+          height: 12px;
+          margin-top: -4px;
+          margin-left: -4px;
+        }
+      }
+    }
+  }
+}

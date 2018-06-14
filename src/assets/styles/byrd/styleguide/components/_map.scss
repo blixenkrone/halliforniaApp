@@ -1,0 +1,154 @@
+/**Map*/
+
+.mapboxgl-map {
+  font-family: $font;
+  canvas {
+    position: relative !important;
+  }
+}
+
+.mapboxgl-user-location-dot {
+  background-color: $sapphire-blue;
+}
+
+/**Assignmant map*/
+
+.map-assignment {
+  .map-container {
+    border-radius: 15px;
+    height: 600px;
+  }
+}
+
+/**Header*/
+
+.byrd-map-header {
+  background: transparent;
+  z-index: 100;
+  position: relative;
+  width: 250px;
+  margin: 0;
+  /**Search block*/
+  .byrd-map-header-search-result {
+    .btn {
+      font-size: 0.9rem;
+    }
+  }
+  /**Final step*/
+  .byrd-map-header-final-step {
+    h4 {
+      font-weight: 700 !important;
+    }
+  }
+  h2 {
+    padding: 0.8rem;
+    background-color: rgba($white-bird, .8);
+    border-radius: 5px;
+  }
+  &.header-create-form {
+    max-width: 420px;
+    width: 100%;
+    background-color: $white;
+    border-radius: 12px;
+    h2 {
+      padding: 0;
+      background-color: transparent;
+      border-radius: 0;
+    }
+    h4 {
+      font-size: 14px;
+      letter-spacing: 0.35px;
+      font-weight: 500;
+    }
+    .datepicker-btn {
+      font-size: 1rem;
+      color: $stale;
+      background-color: transparent !important;
+      transition: ease-in-out color .25s !important;
+      &:hover {
+        color: $gay-flame;
+        background-color: transparent !important;
+      }
+      &:after {
+        vertical-align: 0.155em;
+      }
+    }
+    #hidden-input {
+      background-color: transparent;
+      color: $stale !important;
+    }
+    .datepicker-container {
+      transform: translateX(0) !important;
+    }
+  }
+}
+
+/**Map container*/
+
+.byrd-map {
+  position: fixed;
+  top: 100px;
+  z-index: 0;
+  height: 100%;
+  .byrd-map-dialog-title {
+    word-break: break-all;
+  }
+  .byrd-map-dialog {
+    a {
+      color: $stale;
+      &:hover {
+        color: $gay-flame;
+      }
+    }
+    &.profile-dialog {
+      width: 215px;
+      img {
+        max-height: 195px;
+      }
+      .footer {
+        text-align: center;
+        font-size: 1rem;
+      }
+    }
+  }
+  .map-container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    .assignment-radius {
+      background-color: $gay-flame;
+      width: 100px;
+      height: 100px;
+    }
+    &.view-story-radius {
+      position: relative;
+      background-color: $gay-flame;
+      width: 290px;
+      height: 290px;
+      top: 50px;
+      left: 648px;
+      border-radius: 15px;
+      /* bottom: 0px; */
+    }
+  }
+}
+
+/**Media styles*/
+
+@media screen and (max-width: 991px) {
+  .map-assignment {
+    margin-bottom: 1.5rem;
+    .map-container {
+      height: 400px;
+    }
+    canvas {
+      left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .byrd-map {
+    top: 70px;
+  }
+}

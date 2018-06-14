@@ -1,0 +1,84 @@
+#admin-navigation {
+  text-align: center;
+  margin: 1rem;
+  font-size: 1.3rem;
+  a.admin-route {
+    color: $suburban-bird;
+    &.active-link,
+    &:hover {
+      color: $sapphire-blue;
+    }
+  }
+}
+
+.admin-heading {
+  padding-top: 2rem;
+  border-bottom: solid 1px #CDD1E4;
+  h1 {
+    font-size: 36px;
+    color: $sapphire-blue;
+  }
+  p {
+    font-size: 18px;
+    color: $greyhound;
+  }
+}
+
+.dashboard-container {
+  .dashboard-card {
+    background: $early-morning;
+    border-radius: 2rem;
+    height: auto;
+    width: 15rem;
+    .dashboard-content {
+      text-align: center;
+      h2,
+      p {
+        color: $white-goose;
+        font-weight: 800;
+      }
+    }
+    i.far {
+      color: $white-goose;
+      padding: 1rem;
+      font-size: 4rem;
+    }
+  }
+}
+
+// wand
+.fa-magic {
+  color: $princess;
+  cursor: pointer;
+}
+
+.story-votes {
+  .is-hidden {
+    float: right;
+    .fas {
+      color: $metal-war;
+    }
+  }
+}
+
+// dropdown
+bs-dropdown-container {
+  #dropdown-basic {
+    flex-wrap: wrap;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    li {
+      outline: 0;
+      a.dropdown-item {
+        &:focus,
+        &:active {
+          background-color: $white-bird;
+        }
+      }
+    }
+  }
+}
+
+
+

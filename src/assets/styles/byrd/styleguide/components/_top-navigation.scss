@@ -1,0 +1,130 @@
+$toggle-color: rgba(0, 0, 0, 1) !default;
+input.byrd-search {
+  height: 80px;
+  border: none;
+  font-size: 14px;
+  border-color: $white-bird;
+}
+
+.navbar {
+  padding: 10px 40px 10px 40px;
+  background-color: $white;
+}
+
+.byrd-navbar {
+  height: 80px;
+}
+
+.navbar-brand {
+  font-family: $font;
+  font-size: 14px;
+  color: $toggle-color;
+  margin-right: 40px;
+}
+
+a.nav-link {
+  font-family: $font;
+  font-size: 14px;
+  color: $greyhound;
+  font-weight: 400;
+  &:hover {
+    color: #FF565D;
+  }
+}
+
+.dropdown {
+  cursor: pointer;
+}
+
+.top-nav-active {
+  color: $dancing-flamingo !important;
+}
+
+.nav-item.show {}
+
+.nav-item {
+  .dropdown-menu {}
+  .dropdown-item {
+    padding: 10px 24px;
+    font-size: 14px;
+  }
+}
+
+.byrd-toggler {
+  padding: 8px 0px;
+  font-size: 22px;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  .navbar-toggler-icon {
+    // background-image: str-replace(url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='#{$toggle-color}' stroke-width='3' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"), "#", "%23");
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .navbar {
+    z-index: 9999 !important;
+  }
+}
+
+// .top-navigation {
+// 	min-height: $top-navigation-height;
+// 	background-color: $top-navigation-bg-color;
+// 	padding:0px 20px;
+// 		&.fixed-top{
+// 		top: 0px;
+// 		@include media-breakpoint-down(sm) {
+// 		position: static;
+// 		}
+// 	}
+// 	.burger {
+// 	font-size: 35px;
+//     margin-top: 25px;
+//     color: #FFF;
+//     margin-bottom: 25px;
+// 	}
+// 	@include media-breakpoint-down(sm) {
+// 	.profile-nav {
+// 	position: absolute;
+//     right: 4rem;
+// 	}
+// 	}
+// 	ul {
+// 	min-height: 100px;
+// 		li {
+// 		cursor: pointer;
+// 			a.navbar-brand {
+// 				img {
+// 				    margin-top: 17px;
+// 				    margin-left: 13px;
+// 				}
+// 			}
+// 			&.logo.active {
+// 			background-color: $color-dark-red;
+// 			}
+// 			a.profile {
+// 				img {
+// 				border-radius: 55px;
+//     			margin-top: 22px;
+//   				width:55px;
+//   				vertical-align:middle;
+//   				}
+// 			}
+// 			&.nav-item {
+// 			color: #FFFFFF;
+// 			padding: 24px 15px 22px 15px;
+// 				&.active {
+// 				background-color: $navy-trash;
+// 				}
+// 				a {
+// 				color: #FFFFFF;
+// 				font-weight: 400;
+// 				text-transform: uppercase;
+// 				letter-spacing: 2px;
+// 				font-size: 14px;
+// 				line-height: 40px
+// 				}
+// 			}
+// 		}
+// 	}
+// }

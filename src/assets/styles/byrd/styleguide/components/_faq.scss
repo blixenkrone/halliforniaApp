@@ -1,0 +1,145 @@
+/**FAQ Part container*/
+.byrd-faq {
+
+  /**FAQ title*/
+  .byrd-faq-title {
+    font-size: 2.25rem;
+    margin-top: 3rem;
+    font-weight: 100;
+    margin-bottom: 2rem;
+  }
+
+  /**FAQ section with questions and answers*/
+  .byrd-faq-section {
+
+    /**FAQ item*/
+    .byrd-faq-item {
+      margin-bottom: 1rem;
+      position: relative;
+      border-radius: 0.75rem;
+      color: $fresh-fish;
+      font-size: 1.25rem;
+      transition: .25s ease-in-out background-color;
+
+      &:hover {
+        background-color: $white-goose;
+      }
+
+      /**Block with animated items*/
+      .byrd-faq-plus-section {
+        position: absolute;
+        top: 18px;
+        right: 10px;
+        width: 24px;
+        height: 24px;
+        z-index: 1;
+
+        &:after {
+          content: '';
+          position: absolute;
+          display: block;
+          height: 3px;
+          background-color: $fresh-fish;
+          left: 50%;
+          top: 50%;
+          width: 24px;
+          transform: translate(-50%, -50%);
+          transition: .25s ease-in-out background-color,
+          .25s ease-in-out transform;
+        }
+
+        &:before {
+          content: '';
+          position: absolute;
+          display: block;
+          height: 3px;
+          background-color: $fresh-fish;
+          left: 50%;
+          top: 50%;
+          width: 24px;
+          transform: rotateZ(-90deg) translateY(-12px) translateX(1px);
+          transition: .25s ease-in-out background-color,
+          .25s ease-in-out transform;
+        }
+      }
+
+      /**Open state*/
+      &.faq-active {
+        background-color: $fresh-fish;
+        color: $white;
+        padding: 1rem;
+
+        .byrd-faq-answer {
+          visibility: visible;
+          opacity: 1;
+          margin-top: 1rem;
+          height: auto;
+        }
+
+        .byrd-faq-question {
+          padding-top: 0;
+          padding-left: 0;
+          padding-bottom: 0;
+        }
+
+        .byrd-faq-plus-section {
+
+          &:before {
+            transform: rotateZ(0deg) translate(-50%, -50%);
+            left: 50%;
+            background-color: $white;
+          }
+
+          &:after {
+            background-color: $white;
+          }
+        }
+      }
+
+      /**FAQ question*/
+      .byrd-faq-question {
+        padding: 1rem;
+        padding-right: 2rem;
+        font-weight: 600;
+        position: relative;
+        z-index: 2;
+        cursor: pointer;
+      }
+
+      /**FAQ answer*/
+      .byrd-faq-answer {
+        height: 0;
+        overflow: hidden;
+        font-weight: 100;
+        visibility: collapse;
+        opacity: 0;
+        transition: .25s ease-in-out visibility,
+        .25s ease-in-out opacity;
+      }
+    }
+  }
+}
+
+/**Media styles*/
+@media screen and (max-width: 575px) {
+  .byrd-faq {
+
+    .byrd-faq-title {
+      text-align: center;
+    }
+
+    .byrd-faq-section {
+
+      .byrd-faq-item {
+
+        .byrd-faq-plus-section {
+          top: 13px;
+        }
+
+        .byrd-faq-question {
+          padding: 1rem 3rem 1rem 1rem;
+        }
+      }
+    }
+  }
+}

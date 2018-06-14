@@ -1,0 +1,51 @@
+.form-control::-webkit-input-placeholder {
+  color: $bird-of-prey;
+  font-family: $font;
+  font-weight: 500;
+}
+
+.form-control:-moz-placeholder {
+  color: $bird-of-prey;
+  font-family: $font;
+  font-weight: 500;
+}
+
+.form-control::-moz-placeholder {
+  font-family: $font;
+  color: $bird-of-prey;
+  font-weight: 500;
+}
+
+.form-control:-ms-input-placeholder {
+  font-family: $font;
+  color: $bird-of-prey;
+  font-weight: 500;
+}
+
+.form-control.searcher::-webkit-input-placeholder {
+  color: #97B4C7;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.form-control.searcher:-moz-placeholder {
+  color: #97B4C7;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.form-control.searcher::-moz-placeholder {
+  color: #97B4C7;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.form-control.searcher:-ms-input-placeholder {
+  color: #97B4C7;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.form-control:focus {
+  border-color: $tropical-bird;
+}

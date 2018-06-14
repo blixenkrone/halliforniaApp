@@ -1,0 +1,260 @@
+/**Buttons constructor*/
+
+button>a {
+  text-decoration: none !important;
+}
+
+@mixin button-byrd($background, $color, $hover) {
+  background-color: $background;
+  color: $color;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  width: auto;
+  font-weight: 500;
+  -webkit-transition: background-color 0.25s ease-out !important;
+  -moz-transition: background-color 0.25s ease-out !important;
+  -o-transition: background-color 0.25s ease-out !important;
+  transition: background-color 0.25s ease-out !important;
+  &:hover,
+  .active,
+  .focus {
+    background-color: rgba($hover, .8) !important;
+    color: rgba($color, .8) !important;
+    text-decoration: none !important;
+    a {
+      text-decoration: none !important;
+      color: rgba($hover, .8) !important;
+    }
+  }
+}
+
+.byrd-awe-btn {
+  background-image: linear-gradient(-180deg, #FF565D 1%, #DB3D7D 100%);
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  font-size: 1rem;
+  margin-top: 15px;
+  width: auto;
+  font-weight: 500;
+  -webkit-transition: background-color 0.25s ease-out !important;
+  -moz-transition: background-color 0.25s ease-out !important;
+  -o-transition: background-color 0.25s ease-out !important;
+  transition: background-color 0.25s ease-out !important;
+  &:hover,
+  .active,
+  .focus {
+    background-image: linear-gradient(-180deg, #DB3D7D 1%, #FF565D 100%) !important;
+    text-decoration: none !important;
+    a {
+      text-decoration: none !important;
+    }
+  }
+}
+
+/**Buttons styles*/
+
+.clear-filters {
+  font-size: 0.875rem;
+}
+
+#date-btn {
+  margin-top: 0px !important;
+}
+
+.datepicker-btn {
+  @include button-byrd($white, #365e78, $white-bird);
+  margin-top: 0px !important;
+  &:hover,
+  .focus {
+    background-color: inherit !important;
+    color: rgba($bloody-bird, .8) !important;
+  }
+}
+
+.green-one-btn {
+  @include button-byrd($green-one, $white, $green-one);
+}
+
+.success-btn {
+  @include button-byrd($green-one, $white, $green-one);
+}
+
+.bloody-bird-btn {
+  @include button-byrd($bloody-bird, $white, $bloody-bird);
+}
+
+.gay-flame-btn {
+  @include button-byrd($gay-flame, $white, $gay-flame);
+}
+
+.pink-shades-btn {
+  @include button-byrd($pink-shades, $white, $pink-shades);
+}
+
+.navy-trash-btn {
+  @include button-byrd($navy-trash, $white, $navy-trash);
+}
+
+.fresh-fish-btn {
+  @include button-byrd($fresh-fish, $white, $fresh-fish);
+}
+
+.sapphire-byrd-btn {
+  @include button-byrd($sapphire-blue, $white, $sapphire-blue);
+}
+
+.tropical-bird-btn {
+  @include button-byrd($tropical-bird, $white, $tropical-bird);
+}
+
+.gay-flame-btn-light {
+  @include button-byrd($white, $gay-flame, $white);
+}
+
+.fresh-fish-btn-light {
+  @include button-byrd($white-bird, $fresh-fish, $white-bird);
+}
+
+.stale-btn {
+  @include button-byrd($stale, $white, $stale);
+}
+
+.stale-btn-light {
+  @include button-byrd($white-bird, $stale, $white-bird);
+}
+
+.princess-btn-light {
+  @include button-byrd($white-bird, $princess, $white-bird);
+}
+
+.grey-goose-btn {
+  @include button-byrd($grey-goose, $white, $grey-goose);
+}
+
+.city-bird-btn {
+  @include button-byrd($city-bird, $white, $city-bird);
+}
+
+.suburban-bird-btn {
+  @include button-byrd($suburban-bird, $white, $suburban-bird);
+}
+
+.dancing-flamingo-btn {
+  @include button-byrd($dancing-flamingo, $white, $dancing-flamingo)
+}
+
+/*********************/
+
+/* Login special btns */
+
+/*********************/
+
+/**Buttons styles*/
+
+@mixin button-login-byrd($background, $color, $hover) {
+  background-color: $background;
+  color: $color;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+  text-align: left;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  font-size: 20px;
+  margin-top: 15px;
+  padding-left: 15px;
+  width: auto;
+  font-weight: 500;
+  -webkit-transition: background-color 0.25s ease-out !important;
+  -moz-transition: background-color 0.25s ease-out !important;
+  -o-transition: background-color 0.25s ease-out !important;
+  transition: background-color 0.25s ease-out !important;
+  &:active {
+    background-image: $background;
+  }
+  &:hover,
+  .active,
+  .focus {
+    background-color: rgba($hover, .8) !important;
+    color: rgba($color, .8) !important;
+    text-decoration: none !important;
+    a {
+      text-decoration: none !important;
+      color: rgba($hover, .8) !important;
+    }
+  }
+}
+
+.facebook-btn {
+  @include button-login-byrd(#4065B3, #FFFFFF, #4065B3);
+}
+
+.twitter-btn {
+  @include button-login-byrd(#1DA1F2, #FFFFFF, #1DA1F2);
+}
+
+.btn .btn-icon {
+  margin-right: 15px;
+}
+
+.clear-filters {
+  font-size: 0.875rem;
+}
+
+#date-btn {
+  margin-top: 0px !important;
+}
+
+.login-container {
+  @media (min-width: 992px) {
+    top: 180px;
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+}
+
+#login {
+  @media (min-width: 992px) {
+    // background-image: url('../angular_src/assets/images/misc/top-waves.svg');
+    background-repeat: repeat-x;
+  }
+}
+
+/**Buttons sizes*/
+
+.btn {
+  padding: .75rem;
+  &:hover {
+    text-decoration: none !important;
+  }
+  a:hover {
+    text-decoration: none !important;
+  }
+}
+
+.btn-lg {
+  padding: .75rem 1rem;
+}
+
+.btn-sm {
+  padding: .5rem;
+}
+
+/**Buttons shadows*/
+
+.btn-shadow {
+  box-shadow: $byrd-shade-2;
+}

@@ -1,0 +1,257 @@
+/**Message*/
+
+$img_width: 59px;
+.byrd-message {
+  .byrd-border {
+    border: 1px solid $white-goose;
+  }
+  .delete-notifications {
+    font-size: 1.1rem;
+    color: $metal-war;
+    cursor: pointer;
+  }
+  /**Search input*/
+  .byrd-message-search {
+    input {
+      height: 50px;
+      min-width: 30rem;
+      width: 100%;
+      box-shadow: none;
+    }
+  }
+  /**Item container*/
+  .message-container {
+    /**No more*/
+    .messsage-no-more {
+      font-size: 1.25rem;
+      letter-spacing: 0.05px;
+    }
+    /**Item*/
+    .message-container-item {
+      border-bottom: 1px solid $white-goose;
+      transition: ease-in-out .25s background-color;
+      cursor: pointer;
+      &:hover {
+        background-color: $white-goose;
+      }
+      &.new-message-highlight {
+        background-color: $white-bird;
+        &:hover {
+          background-color: $white-goose;
+        }
+      }
+      /**Item profile img*/
+      .message-container-item-img {
+        width: $img_width;
+        height: $img_width;
+        border-radius: 50%;
+        object-fit: cover !important;
+      }
+      /**Item profile name*/
+      .message-container-item-namecontainer {
+        margin-left: 37px;
+        .message-container-item-username {
+          letter-spacing: 0.05px;
+        }
+        .message-container-item-name {
+          font-size: 1.25rem;
+          letter-spacing: 0.05px;
+        }
+      }
+      .message-help-container {
+        width: calc(100% - #{$img_width} - 208px);
+      }
+      /**Item message text*/
+      .message-container-item-text {
+        width: calc(100% - 168px);
+        word-break: break-all;
+        margin-left: 50px;
+        font-size: 1.125rem;
+        letter-spacing: 0.04px;
+      }
+      /**Item date*/
+      .message-container-item-date {
+        min-width: 160px;
+        .message-container-item-date-ago {
+          font-size: 1rem;
+          letter-spacing: 0.05px;
+        }
+        .message-container-item-date-reg {
+          font-size: 0.75rem;
+          letter-spacing: 0.05px;
+        }
+      }
+    }
+  }
+  /**Profile image*/
+  .byrd-message-sidebar-img {
+    text-align: center;
+    img {
+      cursor: pointer;
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+    }
+  }
+  /**Textarea section*/
+  .message-write-section {
+    textarea {
+      border: none;
+      min-height: 176px;
+      resize: none;
+    }
+    /**Textarea section footer*/
+    .message-write-section-footer {
+      background-color: #143A6F;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      button {
+        width: 190px;
+      }
+    }
+  }
+  /**Container with messages*/
+  .message-clouds-container {
+    margin-top: 30px;
+    /**Message item*/
+    .message-clouds-item {
+      /**Not own item*/
+      &.not-own {
+        .message-clouds-item-text {
+          background-color: transparent;
+        }
+      }
+      /**Message item text*/
+      .message-clouds-item-text {
+        padding: 20px;
+        background-color: $white-goose;
+        border-color: $white-goose;
+        p {
+          letter-spacing: 0.04px;
+          line-height: 24px;
+        }
+        /**Message item date*/
+        .message-clouds-item-date {
+          letter-spacing: 0.04px;
+          font-size: 0.8125rem;
+        }
+      }
+      /**Message item - profile image*/
+      .message-clouds-item-profile {
+        img {
+          width: 55px;
+          height: 55px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+/**Media styles*/
+
+@media screen and (max-width: 991px) {
+  .byrd-message {
+    .message-container {
+      .message-container-item {
+        .message-help-container {
+          width: calc(100% - #{$img_width} - 144px);
+        }
+        .message-container-item-text {
+          word-break: normal;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .message-container-item-date {
+          min-width: 120px;
+          margin-left: 1.5rem !important;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .byrd-message {
+    .responsive {
+      display: none;
+    }
+    .message-container {
+      .message-container-item {
+        position: relative;
+        .message-help-container {
+          width: 100%;
+          flex-direction: column;
+          align-items: flex-start !important;
+        }
+        .message-container-item-text {
+          margin-left: 1.5rem;
+          width: calc(100% - #{$img_width} - 20px); // max-width: 260px;
+        }
+        .message-container-item-date {
+          position: absolute;
+          right: 1.5rem;
+          top: 2rem;
+          min-width: 80px;
+          margin-left: 1.5rem;
+        }
+        .message-container-item-namecontainer {
+          margin-left: 1.5rem;
+          align-items: flex-start !important;
+          .message-container-item-username {
+            display: none;
+          }
+        }
+        .message-container-item-date {
+          .message-container-item-date-ago {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .byrd-message {
+    h3 {
+      border-top: 1px solid $white-goose;
+      text-align: center;
+      margin: 0 -15px !important;
+      padding-top: 1.5rem;
+    }
+    .back-button {
+      width: auto !important;
+    }
+    .col-lg-3,
+    .col-lg-9 {
+      padding: 0;
+    }
+    .col-lg-3 {
+      text-align: center;
+      &>div {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+    .byrd-message-sidebar-description {
+      display: none;
+    }
+    .message-clouds-container {
+      padding: 0 15px;
+    }
+    .message-write-section {
+      border-left: none;
+      border-right: none;
+      border-radius: 0;
+      .message-write-section-footer {
+        border-radius: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+/**Payment*/
+
+.mat-spinner {
+  width: 30px !important;
+  height: 30px !important;
+  circle {
+    stroke: $white;
+  }
+  svg {
+    width: 30px !important;
+    height: 30px !important;
+  }
+}
+
+.byrd-payment {
+  font-family: $font;
+  &>.row {
+    border: 1px solid $white-goose;
+    overflow: hidden;
+  }
+  /**Payment item*/
+  .byrd-payment-item {
+    border-bottom: 1px solid $white-goose;
+    h4 {
+      margin-bottom: 0;
+      font-size: 1.125rem;
+      letter-spacing: 0.04px;
+      font-weight: 400;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    input[type='checkbox']:checked+i {
+      background: $gay-flame !important;
+    }
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  /**Payment titles*/
+  .byrd-payment-title {
+    font-size: .8125rem;
+    letter-spacing: 0.04px;
+  }
+  /**Payment image*/
+  .byrd-payment-thumbnail {
+    img {
+      margin: 0 auto;
+    }
+  }
+  /**Payment header*/
+  .byrd-payment-header {
+    font-size: 1.25rem;
+  }
+}
+
+/**Media styles*/
+
+@media screen and (max-width: 575px) {
+  .byrd-payment {
+    text-align: center;
+  }
+}

@@ -1,0 +1,72 @@
+/**Text elements styles*/
+h1 {
+  font-size: 36px;
+  letter-spacing: 0.5px;
+  color: $stale;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 30px;
+  letter-spacing: 0.35px;
+  color: $stale;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 26px;
+  letter-spacing: 0.35px;
+  color: $stale;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 16px;
+  letter-spacing: 0.35px;
+  color: $stale;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 20px;
+  letter-spacing: 0.35px;
+  color: $stale;
+  font-weight: 400;
+}
+
+p {
+  font-size: 16px;
+  letter-spacing: 0.20px;
+  color: $stale;
+  font-weight: 400;
+}
+
+a {
+  letter-spacing: 0.20px;
+  color: $bloody-bird;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  -webkit-transition-property: color !important;
+  transition-property: color !important;
+  -webkit-transition-duration: 500ms !important;
+  transition-duration: 500ms !important;
+  -webkit-transition-timing-function: ease-out !important;
+  transition-timing-function: ease-out !important;
+  text-decoration: none;
+  cursor: pointer !important;
+}
+
+a:hover {
+  color: rgba($bloody-bird, 0.8);
+  text-decoration: none;
+}
+
+a:focus {
+  color: rgba($bloody-bird, 0.8);
+  text-decoration: none;
+}
+
+a.active {
+  color: rgba($bloody-bird, 0.8);
+  text-decoration: none;
+}

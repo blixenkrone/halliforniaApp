@@ -1,0 +1,88 @@
+/**Profile*/
+
+.pos-relative {
+  position: relative !important;
+}
+
+.word-wrap {
+  word-wrap: break-word;
+}
+
+.edit-profife-dialog {
+  height: auto !important;
+  input {
+    height: 60px;
+  }
+}
+
+.byrd-profile-item {
+  background: $white;
+  label {
+    color: $fresh-fish;
+    width: 100%;
+  }
+  input {
+    margin-top: 5px;
+  }
+  small {
+    color: $tropical-bird;
+  }
+  .error {
+    color: $bloody-bird;
+  }
+}
+
+.byrd-profile-sidebar {
+  .byrd-profile-sidebar-img {
+    text-align: center;
+    img {
+      width: 125px;
+      height: 125px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+}
+
+.byrd-profile-tabs {
+  .nav-link {
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    &:after {
+      content: '';
+      height: 3px;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      opacity: 0;
+      background-color: $gay-flame;
+      transform: translateY(-10px);
+      transition: transform ease-in-out .25s, opacity ease-in-out .25s;
+    }
+    &.active {
+      color: $gay-flame;
+      &:after {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+  }
+}
+
+.byrd-profile-rounded-img {
+  height: 150px !important;
+  width: 150px !important;
+  max-width: 100%;
+  border-radius: 50% !important;
+}
+
+/**Media*/
+
+@media screen and (max-width: 991px) {
+  .byrd-profile-sidebar {
+    padding: 0 30px !important;
+  }
+}

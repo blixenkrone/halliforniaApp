@@ -1,0 +1,88 @@
+// Byrd Reds
+$bloody-bird: #D83C58;
+$gay-flame: #FF5070;
+$pink-shades: #FFB0C9;
+// Blues
+$sapphire-blue: #143A6F;
+$dash-bird: #2F5B99;
+$city-bird: #013E94;
+$navy-trash: #032439;
+$suburban-bird: #8894C6;
+$fresh-fish: #005F90;
+$tropical-bird: #338DB5;
+// Pinkish
+$party-bird: #C100A1;
+$dancing-flamingo: #E82C7B;
+$princess: #E180A7;
+$stale: #1D202A;
+$metal-war: #34384A;
+$greyhound: #616577;
+$bird-of-prey: #8B90A6;
+$grey-goose: #CDD1E4;
+$white-goose: #E2E4F0;
+$white-bird: #F3F7F9;
+// Success
+$green-one: #29BA82;
+$green-two: #29D8A6;
+$green-three: #2CE89E;
+// Warning
+$red-one: #BA2948;
+$red-two: #D82956;
+$red-three: #FF3B61;
+// Generic
+$black: #000000;
+$white: #FFFFFF;
+$colors: (white, $white),
+(black, $black),
+(bloody-bird, $bloody-bird),
+(gay-flame, $gay-flame),
+(pink-shades, $pink-shades),
+(sapphire-blue, $sapphire-blue),
+(dash-bird, $dash-bird),
+(city-bird, $city-bird),
+(surburban-bird, $suburban-bird),
+(navy-trash, $navy-trash),
+(fresh-fish, $fresh-fish),
+(tropical-bird, $tropical-bird),
+(tropical-bird, $tropical-bird),
+(party-bird, $party-bird),
+(dancing-flamingo, $dancing-flamingo),
+(princess, $princess),
+(stale, $stale),
+(metal-war, $metal-war),
+(greyhound, $greyhound),
+(bird-of-prey, $bird-of-prey),
+(grey-goose, $grey-goose),
+(white-goose, $white-goose),
+(white-bird, $white-bird),
+(green-one, $green-one),
+(green-two, $green-two),
+(green-three, $green-three),
+(red-one, $red-one),
+(red-two, $red-two),
+(red-three, $red-three);
+@each $name,
+$color in $colors {
+  &.#{$name} {
+    color: $color;
+  }
+  a.#{$name}:hover {
+    color: lighten($color: $color, $amount: 12);
+    text-decoration: none !important;
+  }
+}
+
+@each $name,
+$color in $colors {
+  &.bg-#{$name} {
+    background-color: $color;
+  }
+  &.bg-#{$name}-transparent {
+    will-change: background-color;
+    transition: background-color 0.5s ease;
+    background-color: rgba($color, 0.65);
+    &:hover {
+      background-color: rgba($color, 0.20);
+    }
+  }
+}

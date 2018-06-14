@@ -1,0 +1,64 @@
+#login-body {
+  background-color: $navy-trash !important;
+}
+
+.mat-tab-group {
+  font-family: $font !important;
+  line-height: 1 !important;
+}
+
+.mat-tab-label {
+  font-family: $font !important;
+  color: $white !important;
+  background-color: transparent;
+  opacity: 0.5 !important;
+  font-weight: 500 !important;
+}
+
+#tabs .mat-tab-label {
+  font-family: $font;
+}
+
+/* Styles for the active tab label */
+
+.mat-tab-label-active {
+  font-weight: 500 !important;
+  color: $gay-flame !important;
+  background-color: transparent;
+  opacity: 1 !important;
+}
+
+/* Styles for the ink bar */
+
+.mat-ink-bar {
+  background-color: $bloody-bird !important;
+}
+
+#tabs .mat-tab-label {
+  font-family: $font;
+}
+
+#byrd-login-img {
+  padding-top: 20px;
+  display: block;
+  margin: auto;
+  width: 15%;
+  height: auto;
+}
+
+/*  Progress-bar loading styles */
+
+.mat-progress-bar-buffer.mat-progress-bar-element {
+  background-color: $pink-shades;
+}
+
+.mat-progress-bar-fill::after {
+  background-color: $gay-flame;
+}
+
+// .mat-progress-bar-secondary.mat-progress-bar-fill.mat-progress-bar-element {
+//   background-color: $gay-flame;
+//   &::after {
+//     background-color: $gay-flame;
+//   }
+// }

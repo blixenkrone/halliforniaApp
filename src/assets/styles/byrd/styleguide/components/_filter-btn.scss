@@ -1,0 +1,17 @@
+.filter-btn {
+  &.btn:active {
+    text-decoration: underline;
+  }
+  color: $fresh-fish !important;
+  cursor: pointer;
+  padding-left: 0px !important;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  font-weight: 500;
+  -webkit-transition: background-color 0.25s ease-out !important;
+  -moz-transition: background-color 0.25s ease-out !important;
+  -o-transition: background-color 0.25s ease-out !important;
+  transition: background-color 0.25s ease-out !important;
+}
