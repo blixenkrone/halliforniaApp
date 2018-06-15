@@ -1,7 +1,7 @@
-<div class="container-fluid" *ngIf="storiesArr && storiesData && !isLoading">
+<div class="container-fluid" *ngIf="storiesData && !isLoading">
   <div class="row">
     <div class="feed-container stories col-12 flex-wrap d-flex text-center">
-      <div class="feed-row p-3 col-lg-4 col-md-6 col-12" *ngFor="let story of storiesArr">
+      <div class="feed-row p-3 col-lg-4 col-md-6 col-12" *ngFor="let story of storiesData | async">
         <div class="feed-body story byrd-shade-2 byrd-rad">
           <div class="feed-img">
             <img class="img-fluid img-thumbnail" id="feed-img" src="{{story.storyThumbnailImage}}" alt="">

@@ -1,6 +1,7 @@
+import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../../services/database.service';
-import { Observable, of } from 'rxjs';
+import { Observable, of, BehaviorSubject } from 'rxjs';
 import { map, catchError, count } from 'rxjs/operators';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
@@ -20,8 +21,9 @@ export interface IFeedStory {
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
-  storiesData: IFeedStory[];
-  storiesArr: IFeedStory[] = [];
+  storiesData = new BehaviorSubject<any>(null);
+  // storiesArr: IFeedStory[] = [];
+  storiesArr = [];
 
   newLoad: boolean = false;
   isLoading: boolean;
@@ -41,16 +43,9 @@ export class FeedComponent implements OnInit {
     const dbRef = this.dbSrv.curatedStoriesFromDB
       .pipe(catchError(err => of(err)))
       .subscribe(data => {
-        this.storiesArr = [];
-        this.storiesData = data;
-        this.storiesArr.push(...data);
-
-        if (this.storiesArr.length > 6) {
-          console.log('lol');
-        }
-
+        this.storiesData.next(data);
+        console.log(this.storiesData.getValue())
         this.isLoading = false;
-        console.log(this.storiesArr);
       });
   }
 
