@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.0/p5.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.min.js"></script>
+	<style>
+		* {box-sizing: border-box; 
+		   margin: 0px;
+		}
+
+		#canvas-holder {background-color: #ff80aa;
+						display: grid; 
+						justify-content: center; 
+						align-content: center; 
+						width: 100vw; 
+						height: 100vh; 
+		}
+		
+	</style>
+	<script>
+		function setup() {
+			var canvas = createCanvas(600,400);
+			canvas.parent("canvas-holder");
+    		background("white");
+			
+		}
+
+		var size, r, g, b, x, y, speed;
+
+var bubbleY_1, bubbleX_1, bubbleY_2, bubbleX_2, bubbleY_3, bubbleX_3, bubbleY_4, bubbleX_4, bubbleY_5, bubbleX_5, 
+bubbleY_6, bubbleX_6, bubbleY_7, bubbleX_7, bubbleY_8, bubbleX_8, bubbleY_9, bubbleX_9, bubbleY_10, bubbleX_10;
+
+var s1, s2, s3, s4, s5, s6, s7, s8, s9, s10;
+
+var pause;
+
+var d1, d2;
+
+var speed,speed;
+
+function preload(){
+}
+function setup(){
+   
+	var canvas = createCanvas(600,400);
+	canvas.parent("canvas-holder");
+    background("white");
+    frameRate(60);
+	noStroke();
+    size = 80;
+	
+	
+    r = 0;
+    g = 255;
+    b = 255;
+	
+
+	
+	
+    x = 0;
+	y = height;
+	
+	
+    speed = -1; //speed of the animation
+	speedY = speed;
+	
+	
+    pause = false;
+}
+function outOfBounds(val,max) {
+	if (val > max) return 1;
+	else if (val < 0) return -1;
+	else return 0;
+}
+ function draw() {
+	    background("white");
+		
+    if(speed > 0){
+            push(); 
+            translate(x,y);
+            scale(0.75);
+			
+			
+            fill(r,g,b); 
+            ellipse(0,0,size,size);
+			
+			
+            pop();
+
+            x = x + speed;
+			y = y + speedY;
+			
+			let bounds_x = outOfBounds(x,width);
+			let bounds_y = outOfBounds(y,height);
+			
+			
+            if(bounds_x !== 0) speed = speed * -1;
+			if(bounds_y !== 0) speedY = speedY * -1;
+			if(bounds_x !== 0 && bounds_y !== 0) {
+				speed = speed * -1;
+				speedY = speedY * -1;
+			}
+        }
+        
+        
+        if(speed < 0){
+            push();
+            translate(x,y);
+            scale(0.75);
+			
+			
+            fill(r,g,b); 
+            ellipse(0,0,size,size);
+            pop();
+            x = x + speed;
+			y = y + speedY;
+			
+			let bounds_x = outOfBounds(x,width);
+			let bounds_y = outOfBounds(y,height);
+			
+			
+            if(bounds_x !== 0) speed = speed * -1;
+			if(bounds_y !== 0) speedY = speedY * -1;
+			if(bounds_x !== 0 && bounds_y !== 0) {
+				speed = speed * -1;
+				speedY = speedY * -1;
+			}
+         }
+    
+    /**
+    if(speed_2 > 0){
+            push(); 
+            translate(x_2,y_2);
+            //Krop
+            fill(r2,g2,b2); 
+            ellipse(0,0,size,size*0.5);
+            // Øje
+            translate(size/4,0);
+            fill(0,0,0);
+            ellipse(0,0,(size*0.5)/4,(size*0.5)/4);
+            // Hale
+            translate(-(size*0.75),0);
+            rotate(PI);
+            fill(r2,g2,b2);   
+            triangle(0,0,size/4,-(size/4),size/4,size/4);
+            pop();
+
+            x_2 = x_2 + speed_2;
+            if(x_2 > width){
+                 speed_2 = speed_2 * -1;
+            }
+        }
+        if(speed_2 < 0){
+            push();
+            translate(x_2,y_2);
+            //Krop
+            fill(r2,g2,b2); 
+            ellipse(0,0,size,size*0.5);
+            // Øje
+            translate(-(size/4),0);
+            fill(0,0,0);
+            ellipse(0,0,(size*0.5)/4,(size*0.5)/4);
+            // Hale
+            translate(size*0.75,0);
+            fill(r2,g2,b2);   
+            triangle(0,0,size/4,-(size/4),size/4,size/4);
+            pop();
+            x_2 = x_2 + speed_2;
+            if(x_2 < 0){
+              speed_2 = speed_2 * -1;
+            }
+         }
+    
+    */
+    
+    strokeWeight(2.5);
+    stroke(150, 255, 255, 50);
+    fill(150, 255, 255, 50);
+
+    /*ellipse(bubbleX_1,bubbleY_1,20,20);
+    ellipse(bubbleX_2,bubbleY_2,10,10); 
+    ellipse(bubbleX_3,bubbleY_3,15,15);
+    ellipse(bubbleX_4,bubbleY_4,25,25);
+    ellipse(bubbleX_5,bubbleY_5,25,25);
+    ellipse(bubbleX_6,bubbleY_6,15,15);
+    ellipse(bubbleX_7,bubbleY_7,20,20);
+    ellipse(bubbleX_8,bubbleY_8,10,10);
+    ellipse(bubbleX_9,bubbleY_9,20,20);
+    ellipse(bubbleX_10,bubbleY_10,15,15);*/
+
+   
+
+
+
+       //stroke("black");
+       //strokeWeight(1);
+       //fill("black");
+       //textFont("TimesNewRoman");
+       //textStyle(ITALIC);
+       //textSize(18);
+       //text("Anne Bjerre",10,30);
+       //noStroke();
+
+ } 
+
+   function mouseClicked(){
+
+         d_1 =  dist(mouseX, mouseY, x,y);
+         d_2 =  dist(mouseX, mouseY, x,y);
+        if(d_1 < 50){
+            r = random(255);
+            g = random(255);
+            b = random(255);
+        }
+        else if (d_2 < 50){
+             r = random(255);
+             g = random(255);
+             b = random(255);
+        }
+        else {
+            pause = !pause;
+            if(pause){
+                noLoop();
+                soundtrack.stop();
+
+        }
+            else {loop();
+                  soundtrack.play();
+            }
+        }
+    
+    }
+	function keyPressed(){if(keyCode === 83){remove();}}
+				
+	</script>
+	<title>p5-projekt</title>
+</head>
+<body>
+	<div id="canvas-holder"></div>
+</body>
+</html> 

@@ -1,0 +1,16 @@
+.feed-container {
+  .feed-row {
+    .feed-body {
+      img#feed-img {
+        width: 100%;
+        border-radius: 6px;
+        border: none;
+      }
+      .feed-text {
+        .user-info {
+          font-size: 0.825rem;
+        }
+      }
+    }
+  }
+}

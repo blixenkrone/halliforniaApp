@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { CoreModule } from './shared/core/core.module';
+import { FirebaseModule } from './shared/core/firebase.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { CoreModule } from './shared/core/core.module';
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    FirebaseModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
