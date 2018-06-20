@@ -9,5 +9,6 @@ export const environment = {
     projectId: 'byrd-1498b',
     storageBucket: 'byrd-1498b.appspot.com',
     messagingSenderId: '153751322878'
-  }
+  },
+  apiUrl: 'https://byrd-api.herokuapp.com/v1'
 };

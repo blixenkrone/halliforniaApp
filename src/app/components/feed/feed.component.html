@@ -1,22 +1,29 @@
 <div class="container-fluid" *ngIf="storiesData && !isLoading">
   <div class="row">
-    <div class="feed-container stories col-12 flex-wrap d-flex text-center">
-      <div class="feed-row p-3 col-lg-4 col-md-6 col-12" *ngFor="let story of storiesData | async">
-        <div class="feed-body story byrd-shade-2 byrd-rad">
-          <div class="feed-img">
-            <img class="img-fluid img-thumbnail" id="feed-img" src="{{story.storyThumbnailImage}}" alt="">
+    <div class="feed-container stories flex-wrap d-flex text-center">
+      <!-- <div class="feed-row p-3 col-lg-4 col-md-6 col-12" *ngFor="let story of (storiesData | async); let i = index" id={{i}}> -->
+      <ngx-masonry [options]="masonryOptions">
+        <ngxMasonryItem class="masonry-item feed-row p-3" *ngFor="let story of (storiesData | async)">
+          <div class="feed-body story byrd-shade-2 byrd-rad">
+            <div class="feed-img">
+              <i class="fas fa-times" (click)="deleteStory(story)"></i>
+              <img class="img-fluid img-thumbnail" id="feed-img" src="{{story.storyThumbnailImage}}">
+            </div>
+            <div class="feed-text story-content d-flex justify-content-center">
+              <div class="feed-header col-12">
+                <p>{{story.storyHeadline}}</p>
+                <span class="story-avatar">
+                  <img class="" src="{{story.userPicture}}" onError="this.src='../../../assets/images/bloody-bird-logo.svg'">
+                  <a class="user-info">@{{story.displayName}}</a>
+                </span>
+                <span class="icons">
+                  <i>^</i>
+                </span>
+              </div>
+            </div>
           </div>
-          <div class="feed-text story-content d-flex justify-content-center">
-            <span class="story-avatar">
-              <img class="" src="{{story.userPicture}}" onError="this.src='../../../assets/images/bloody-bird-logo.svg'">
-              <a class="user-info">@{{story.displayName}}</a>
-            </span>
-            <span class="icons">
-              <i>^</i>
-            </span>
-          </div>
-        </div>
-      </div>
+        </ngxMasonryItem>
+      </ngx-masonry>
     </div>
   </div>
 </div>

@@ -1,16 +1,32 @@
 .feed-container {
-  .feed-row {
-    .feed-body {
-      img#feed-img {
-        width: 100%;
-        border-radius: 6px;
-        border: none;
-      }
-      .feed-text {
-        .user-info {
-          font-size: 0.825rem;
+  ngxMasonryItem.masonry-item {
+    background-size: cover;
+    max-width: 40rem;
+    height: auto;
+    &.feed-row {
+      .feed-body {
+        img#feed-img {
+          width: 100%;
+          height: 100%;
+          border-radius: 6px;
+          border: none;
+        }
+        .feed-text {
+          .user-info {
+            font-size: 0.825rem;
+          }
         }
       }
     }
   }
+}
+
+.fa-times {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  margin-right: 2rem;
+  font-size: 1.125rem;
+  top: 25px;
+  color: $white-bird;
 }

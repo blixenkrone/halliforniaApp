@@ -27,10 +27,10 @@
     margin-bottom: 30px;
     background-color: $white;
     transition: ease-in-out .25s box-shadow, ease-in-out .25s transform;
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 40px 0 rgba(62, 57, 107, 0.27), 0 2px 9px 0 rgba(62, 57, 107, 0.26)
-    }
+    // &:hover {
+    //   transform: scale(1.05);
+    //   box-shadow: 0 10px 40px 0 rgba(62, 57, 107, 0.27), 0 2px 9px 0 rgba(62, 57, 107, 0.26)
+    // }
     .story-image-thumbnail {
       position: relative;
       img {

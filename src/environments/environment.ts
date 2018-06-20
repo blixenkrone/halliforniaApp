@@ -12,7 +12,8 @@ export const environment = {
     projectId: 'byrd-development',
     storageBucket: 'byrd-development',
     messagingSenderId: '743878726887'
-  }
+  },
+  apiUrl: 'https://dev-api.byrd.news/v1'
 };
 
 /*
