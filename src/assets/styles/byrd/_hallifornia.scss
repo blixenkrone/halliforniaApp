@@ -1,9 +1,15 @@
 .feed-container {
   ngxMasonryItem.masonry-item {
-    background-size: cover;
+    background-size: cover; // min-width: 480px;
     max-width: 40rem;
     height: auto;
+    &#4 {
+      max-width: 25% !important;
+    }
     &.feed-row {
+      &.is-odd {
+        max-width: 35% !important;
+      }
       .feed-body {
         img#feed-img {
           width: 100%;
@@ -23,10 +29,11 @@
 
 .fa-times {
   cursor: pointer;
+  z-index: 1;
   position: absolute;
-  right: 0;
+  right: -20px;
   margin-right: 2rem;
   font-size: 1.125rem;
-  top: 25px;
-  color: $white-bird;
+  bottom: 45px;
+  color: $bird-of-prey;
 }

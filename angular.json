@@ -56,12 +56,28 @@
               "buildOptimizer": true,
               "serviceWorker": true
             },
+            "devAsProd": {
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }],
+              "optimization": false,
+              "outputHashing": "none",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "serviceWorker": false
+            },
             "development": {
               "optimization": false,
               "outputHashing": "all",
               "sourceMap": false,
               "extractCss": true,
-              "namedChunks": false,
+              "namedChunks": true,
               "aot": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -73,11 +89,16 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+            "port": 4201,
             "browserTarget": "halliforniaApp:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "halliforniaApp:build:production"
+            },
+            "devAsProd": {
+              "browserTarget": "halliforniaApp:build:devAsProd",
+              "commonChunk": true
             },
             "development": {
               "browserTarget": "halliforniaApp:build:development"

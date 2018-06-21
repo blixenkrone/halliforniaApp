@@ -1,20 +1,20 @@
 <div class="container-fluid" *ngIf="storiesData && !isLoading">
   <div class="row">
-    <div class="feed-container stories flex-wrap d-flex text-center">
-      <!-- <div class="feed-row p-3 col-lg-4 col-md-6 col-12" *ngFor="let story of (storiesData | async); let i = index" id={{i}}> -->
-      <ngx-masonry [options]="masonryOptions">
-        <ngxMasonryItem class="masonry-item feed-row p-3" *ngFor="let story of (storiesData | async)">
+    <div class="feed-container stories d-flex flex-wrap justify-content-center text-center">
+      <ngx-masonry [options]="masonryOptions" [useImagesLoaded]="true" [updateLayout]="updateMasonryLayout">
+        <ngxMasonryItem class="masonry-item feed-row" *ngFor="let story of (storiesData | async); let i = index;" id={{i}} [ngClass]="{'is-odd': isOdd(i)}">
           <div class="feed-body story byrd-shade-2 byrd-rad">
             <div class="feed-img">
-              <i class="fas fa-times" (click)="deleteStory(story)"></i>
               <img class="img-fluid img-thumbnail" id="feed-img" src="{{story.storyThumbnailImage}}">
+              <i class="fas fa-times" (click)="deleteStory(story)"></i>
             </div>
             <div class="feed-text story-content d-flex justify-content-center">
               <div class="feed-header col-12">
-                <p>{{story.storyHeadline}}</p>
+                <p class="mb-0">{{story.storyHeadline}}</p>
+                <p class="mb-0">{{story.storyDescription}}</p>
                 <span class="story-avatar">
-                  <img class="" src="{{story.userPicture}}" onError="this.src='../../../assets/images/bloody-bird-logo.svg'">
-                  <a class="user-info">@{{story.displayName}}</a>
+                  <img class="ml-3" src="{{story.userPicture}}" onError="this.src='../../../assets/images/bloody-bird-logo.svg'">
+                  <a class="user-info ml-3">@{{story.displayName}}</a>
                 </span>
                 <span class="icons">
                   <i>^</i>
