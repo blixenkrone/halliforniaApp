@@ -2,16 +2,23 @@
   <div class="row">
     <div class="feed-container stories d-flex flex-wrap justify-content-center text-center">
       <ngx-masonry [options]="masonryOptions" [useImagesLoaded]="true" [updateLayout]="updateMasonryLayout">
-        <ngxMasonryItem class="masonry-item feed-row" *ngFor="let story of (storiesData | async); let i = index;" id={{i}} [ngClass]="{'is-odd': isOdd(i)}">
-          <div class="feed-body story byrd-shade-2 byrd-rad">
-            <div class="feed-img">
-              <img class="img-fluid img-thumbnail" id="feed-img" src="{{story.storyThumbnailImage}}">
-              <i class="fas fa-times" (click)="deleteStory(story)"></i>
-            </div>
+        <ngxMasonryItem class="masonry-item feed-row" *ngFor="let story of (storiesData | async); let i = index;" id={{i}} [ngClass]="{'is-medium': isMedium(3), 'is-small': isSmall(i, 2)}"
+          (click)="deleteStory(story)">
+          <div class="feed-body story byrd-shade-2 byrd-rad mb-5">
+            <ng-container *ngIf="story.mediaType === 'image'; else videoTmp">
+              <div class="feed-img">
+                <img class="img-fluid p-0" id="feed-img" src="{{story.storyThumbnailImage}}">
+              </div>
+            </ng-container>
+            <ng-template #videoTmp>
+              <div class="feed-img video" id="feed-img">
+                <app-video [inputSrc]="story.storyThumbnail"></app-video>
+              </div>
+            </ng-template>
+
             <div class="feed-text story-content d-flex justify-content-center">
               <div class="feed-header col-12">
                 <p class="mb-0">{{story.storyHeadline}}</p>
-                <p class="mb-0">{{story.storyDescription}}</p>
                 <span class="story-avatar">
                   <img class="ml-3" src="{{story.userPicture}}" onError="this.src='../../../assets/images/bloody-bird-logo.svg'">
                   <a class="user-info ml-3">@{{story.displayName}}</a>

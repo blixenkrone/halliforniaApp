@@ -5,13 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { CoreModule } from './shared/core/core.module';
-import { FirebaseModule } from './shared/core/firebase.module';
+import { CoreModule } from './shared/modules/core.module';
+import { FirebaseModule } from './shared/modules/firebase.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,

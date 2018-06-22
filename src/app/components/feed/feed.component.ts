@@ -24,7 +24,7 @@ export interface IFeedStory {
 
 export class FeedComponent implements OnInit {
   storiesData = new BehaviorSubject<any>(null);
-  maxStories: number = 6;
+  maxStories: number = 9;
   newLoad: boolean = false;
   isLoading: boolean;
   timeBeforeAnimation = 2000;
@@ -32,7 +32,7 @@ export class FeedComponent implements OnInit {
   masonryOptions: NgxMasonryOptions = {
     transitionDuration: '1.8s',
     itemSelector: '.masonry-item',
-    columnWidth: 20,
+    columnWidth: 80,
     gutter: 5,
     resize: true,
     initLayout: true,
@@ -47,10 +47,12 @@ export class FeedComponent implements OnInit {
     this.loadInit();
   }
 
-  isOdd(id: number) {
-    // tslint:disable-next-line:curly
-    if (id === 4) return 'iss-odd-4';
-    return id % 2 === 0 ? false : true;
+  isSmall(id: number, num: number) {
+    return id % num === 0 ? false : true;
+  }
+
+  isMedium(num: number) {
+    return 9 % num === 0 ? false : true;
   }
 
   loadInit() {
@@ -58,8 +60,6 @@ export class FeedComponent implements OnInit {
     const dbRef = this.dbSrv.curatedStoriesFromDB
       .pipe(catchError(err => of(err)))
       .subscribe((data: any[]) => {
-        const event = new MouseEvent('click');
-        console.log(event.timeStamp);
         // data.sort((a, b) => parseFloat(b.pictureDate) - parseFloat(a.pictureDate))
         this.storiesData.next(data);
         console.log(this.storiesData.getValue())
@@ -67,9 +67,6 @@ export class FeedComponent implements OnInit {
           console.log('Too many stories')
           this.resetArraySize(data);
         }
-        // data.forEach(story => {
-        //   console.log(story)
-        // });
         this.isLoading = false;
       })
   }
@@ -77,7 +74,7 @@ export class FeedComponent implements OnInit {
   resetArraySize(stories: any[]) {
     const $stories = stories;
     while ($stories.length > this.maxStories) {
-      console.log($stories.pop())
+      console.log($stories.shift())
       this.storiesData.next($stories)
       console.log(this.storiesData.getValue())
     }
@@ -86,7 +83,6 @@ export class FeedComponent implements OnInit {
 
   layout() {
     console.log('masonry layout');
-
   }
 
   deleteStory(story) {
