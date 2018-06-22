@@ -31,6 +31,7 @@
                 "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
               },
               "src/styles.scss",
+              "./node_modules/videogular2/fonts/videogular.css",
               "src/assets/fontawesome/scss/fontawesome-pro-brands.scss",
               "src/assets/fontawesome/scss/fontawesome-pro-core.scss",
               "src/assets/fontawesome/scss/fontawesome-pro-light.scss",
