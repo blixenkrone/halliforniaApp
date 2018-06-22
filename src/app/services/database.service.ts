@@ -23,7 +23,7 @@ export class DatabaseService {
   public get curatedStoriesFromDB(): Observable<any> {
     console.log(environment.environment);
     const dbRef = this.db.list<any>(this.dbBaseRef,
-      ref => ref.orderByChild('isFestival').equalTo(true));
+      ref => ref.orderByChild('isFestival').equalTo(true).limitToLast(100));
     return dbRef.valueChanges();
   }
 
