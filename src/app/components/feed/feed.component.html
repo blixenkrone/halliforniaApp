@@ -2,9 +2,9 @@
   <div class="row">
     <div class="feed-container stories d-flex flex-wrap justify-content-center text-center">
       <ngx-masonry [options]="masonryOptions" [useImagesLoaded]="true" [updateLayout]="updateMasonryLayout">
-        <ngxMasonryItem class="masonry-item feed-row" *ngFor="let story of (storiesData | async); let i = index;" id={{i}} [ngClass]="{'is-medium': isMedium(3), 'is-small': isSmall(i, 2)}"
+        <ngxMasonryItem class="masonry-item feed-row" *ngFor="let story of (storiesData | async); let i = index;" id={{i}} [ngClass]="{'is-big': i===1, 'is-small': isSmall(i, 2)}"
           (click)="deleteStory(story)">
-          <div class="feed-body story byrd-shade-2 byrd-rad mb-5">
+          <div class="feed-body story byrd-shade-2 byrd-rad mb-3">
             <ng-container *ngIf="story.mediaType === 'image'; else videoTmp">
               <div class="feed-img">
                 <img class="img-fluid p-0" id="feed-img" src="{{story.storyThumbnailImage}}">

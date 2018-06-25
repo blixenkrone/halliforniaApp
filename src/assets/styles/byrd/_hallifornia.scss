@@ -1,22 +1,21 @@
-div.heading,
-img {
+img#byrd-header {
   width: 3rem;
 }
 
 .feed-container {
   ngxMasonryItem.masonry-item {
     background-size: cover; // min-width: 480px;
-    max-width: 35rem;
+    max-width: 25rem;
     height: auto;
     &.feed-row {
-      &.is-medium {
-        flex: 0 0 33.3333%;
-        max-width: 15rem !important;
-      }
-      &.is-small {
-        flex: 0 0 33.3333%;
-        max-width: 10rem;
-      }
+      // &.is-big {
+      //   flex: 0 0 100%;
+      //   width: 30rem !important;
+      // }
+      // &.is-small {
+      //   flex: 0 0 100%;
+      //   width: 17rem;
+      // }
       .feed-body {
         background-color: $white-bird;
         img#feed-img {
@@ -42,6 +41,11 @@ img {
       }
     }
   }
+}
+
+vg-player {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 .fa-times {

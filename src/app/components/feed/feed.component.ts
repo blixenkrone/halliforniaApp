@@ -1,10 +1,11 @@
 import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../../services/database.service';
-import { map, filter, catchError, count } from 'rxjs/operators';
+import { map, filter, catchError, count, elementAt, last } from 'rxjs/operators';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { NgxMasonryOptions } from 'ngx-masonry';
+import { } from '@angular/router/src/utils/collection';
 
 export interface IFeedStory {
   storyOriginal: string;
@@ -23,7 +24,10 @@ export interface IFeedStory {
 })
 
 export class FeedComponent implements OnInit {
-  storiesData = new BehaviorSubject<any>(null);
+  dbData = new BehaviorSubject<any>(null);
+  storiesData = this.dbData.asObservable();
+
+  storiesArr: Observable<any>[] = [];
   maxStories: number = 9;
   newLoad: boolean = false;
   isLoading: boolean;
@@ -33,7 +37,7 @@ export class FeedComponent implements OnInit {
     transitionDuration: '1.8s',
     itemSelector: '.masonry-item',
     columnWidth: 80,
-    gutter: 5,
+    gutter: 2,
     resize: true,
     initLayout: true,
     fitWidth: true
@@ -51,19 +55,17 @@ export class FeedComponent implements OnInit {
     return id % num === 0 ? false : true;
   }
 
-  isMedium(num: number) {
-    return 9 % num === 0 ? false : true;
-  }
-
   loadInit() {
     this.isLoading = true;
     const dbRef = this.dbSrv.curatedStoriesFromDB
-      .pipe(catchError(err => of(err)))
-      .subscribe((data: any[]) => {
+      .pipe(
+        catchError(err => of(err))
+      )
+      .subscribe(data => {
+        this.dbData.next(data);
+        console.log(this.dbData.getValue())
         // data.sort((a, b) => parseFloat(b.pictureDate) - parseFloat(a.pictureDate))
-        this.storiesData.next(data);
-        console.log(this.storiesData.getValue())
-        if (data.length > this.maxStories) {
+        if (data.length > (this.maxStories)) {
           console.log('Too many stories')
           this.resetArraySize(data);
         }
@@ -72,13 +74,14 @@ export class FeedComponent implements OnInit {
   }
 
   resetArraySize(stories: any[]) {
-    const $stories = stories;
-    while ($stories.length > this.maxStories) {
-      console.log($stories.shift())
-      this.storiesData.next($stories)
-      console.log(this.storiesData.getValue())
+    while (stories.length > this.maxStories) {
+      const splicedArr = stories.splice(this.maxStories, 1);
+      splicedArr.forEach(story => {
+        console.log(story)
+        this.dbSrv.removeStoryFromFeed(story);
+      })
     }
-    return $stories;
+    return stories;
   }
 
   layout() {
@@ -97,10 +100,3 @@ export class FeedComponent implements OnInit {
   }
 
 }
-
-  /**
-   * https://app.asana.com/0/417326512565358/705488681661663
-   * angular animations:
-   *    - https://stackblitz.com/edit/angular-carousel-with-animations-final?file=app%2Fcomponents%2Fcarousel%2Fcarousel.component.ts
-   * firebase realtime data from service
-   */
