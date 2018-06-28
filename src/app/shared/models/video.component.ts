@@ -4,15 +4,13 @@ import { VgAPI } from 'videogular2/core';
 @Component({
   selector: 'app-video',
   template:
-    `<!--- VIDEO HTML -->
-
+    `
     <vg-player (onPlayerReady)="onPlayerReady($event)" autoplay>
       <video [vgMedia]="media" #media id="singleVideo" preload="auto">
         <source src="{{inputSrc}}" autoplay="true" type="video/mp4">
       </video>
     </vg-player>
-
-    <!--- VIDEO HTML -->`,
+    `,
   styles: []
 })
 
@@ -22,8 +20,7 @@ export class VideoComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   onPlayerReady(api: VgAPI) {
     this.vgApi = api;

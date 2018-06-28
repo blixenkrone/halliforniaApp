@@ -5,7 +5,7 @@ import { map, filter, catchError, count, elementAt, last } from 'rxjs/operators'
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { NgxMasonryOptions } from 'ngx-masonry';
-import { } from '@angular/router/src/utils/collection';
+import { AngularFireList } from 'angularfire2/database';
 
 export interface IFeedStory {
   storyOriginal: string;
@@ -25,21 +25,22 @@ export interface IFeedStory {
 
 export class FeedComponent implements OnInit {
   dbData = new BehaviorSubject<any>(null);
-  storiesData = this.dbData.asObservable();
+  // storiesData = this.dbData.asObservable();
 
-  storiesArr: Observable<any>[] = [];
-  maxStories: number = 9;
+  storiesArr = [];
+  maxStories: number = 6;
   newLoad: boolean = false;
   isLoading: boolean;
   timeBeforeAnimation = 2000;
 
   masonryOptions: NgxMasonryOptions = {
-    transitionDuration: '1.8s',
-    itemSelector: '.masonry-item',
-    columnWidth: 80,
-    gutter: 2,
-    resize: true,
+    transitionDuration: '0.8s',
+    itemSelector: '.feed-container, .masonry-item.masonry-item.feed-row',
+    columnWidth: 30,
     initLayout: true,
+    resize: false,
+    horizontalOrder: true,
+    gutter: 5,
     fitWidth: true
   }
 
@@ -49,39 +50,49 @@ export class FeedComponent implements OnInit {
   ngOnInit() {
     // Init feed
     this.loadInit();
+    // this.removeAllStories(this.storiesArr)
   }
 
   isSmall(id: number, num: number) {
     return id % num === 0 ? false : true;
   }
 
+  doOtherStuff(event) {
+    console.log('done removing')
+  }
+
   loadInit() {
     this.isLoading = true;
-    const dbRef = this.dbSrv.curatedStoriesFromDB
-      .pipe(
-        catchError(err => of(err))
-      )
-      .subscribe(data => {
+    this.dbSrv.curatedStoriesFromDB
+      .pipe(catchError(err => of(err)))
+      .subscribe((data: any[]) => {
         this.dbData.next(data);
-        console.log(this.dbData.getValue())
-        // data.sort((a, b) => parseFloat(b.pictureDate) - parseFloat(a.pictureDate))
-        if (data.length > (this.maxStories)) {
-          console.log('Too many stories')
-          this.resetArraySize(data);
+        this.storiesArr = data;
+        this.storiesArr.sort((a, b) => (b.isFestival.moment) - (a.isFestival.moment))
+        this.storiesArr.forEach(story => {
+          console.log(story.isFestival)
+        });
+        console.log(this.storiesArr)
+        if (this.storiesArr.length > this.maxStories) {
+          console.log('resize array')
+          this.resetArraySize();
         }
         this.isLoading = false;
       })
   }
 
-  resetArraySize(stories: any[]) {
-    while (stories.length > this.maxStories) {
-      const splicedArr = stories.splice(this.maxStories, 1);
-      splicedArr.forEach(story => {
-        console.log(story)
-        this.dbSrv.removeStoryFromFeed(story);
-      })
-    }
-    return stories;
+  removeAllStories(storyArr) {
+    storyArr.forEach(story => {
+      this.dbSrv.removeStoryFromFeed(story);
+    });
+  }
+
+  resetArraySize() {
+    this.isLoading = true;
+    const removedStory = this.storiesArr.pop();
+    console.log(removedStory)
+    this.dbSrv.removeStoryFromFeed(removedStory);
+    this.isLoading = false;
   }
 
   layout() {
@@ -94,6 +105,7 @@ export class FeedComponent implements OnInit {
     const deleteStory = () => this.dbSrv.removeStoryFromFeed(story);
     if (confirmed) {
       deleteStory();
+      window.location.reload();
     } else {
       return;
     }

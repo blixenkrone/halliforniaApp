@@ -3,39 +3,36 @@ img#byrd-header {
 }
 
 .feed-container {
-  ngxMasonryItem.masonry-item {
-    background-size: cover; // min-width: 480px;
-    max-width: 25rem;
+  .masonry-item {
+    background-size: cover;
+    width: 25rem;
     height: auto;
     &.feed-row {
-      // &.is-big {
-      //   flex: 0 0 100%;
-      //   width: 30rem !important;
-      // }
-      // &.is-small {
-      //   flex: 0 0 100%;
-      //   width: 17rem;
-      // }
-      .feed-body {
+      &.is-big {
+        width: 30rem !important;
+      }
+      &.is-small {
+        width: 17rem;
+      }
+    }
+    .feed-body {
+      background-color: $white-bird;
+      #feed-img {
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
         background-color: $white-bird;
-        img#feed-img {
-          width: 100%;
-          height: 100%;
-          border-top-left-radius: 6px;
-          border-top-right-radius: 6px;
-          border-color: #ec7e23;
-          background-color: $white-bird;
-          border: none;
-        }
-        .feed-text {
-          background-color: $white-bird;
-          .feed-header,
-          p {
+        border: none;
+      }
+      .feed-text {
+        background-color: $white-bird;
+        .feed-header,
+        p {
+          font-size: 0.75rem;
+          color: $stale;
+          .user-info {
             font-size: 0.75rem;
-            color: $stale;
-            .user-info {
-              font-size: 0.75rem;
-            }
           }
         }
       }
@@ -44,6 +41,9 @@ img#byrd-header {
 }
 
 vg-player {
+  width: 100%;
+  height: 100%;
+  background-color: $white-bird;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
 }
