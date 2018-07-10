@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { VideoComponent } from './video.component';
 
 @Component({
   selector: 'app-modal',
@@ -12,7 +13,7 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
             <img class="img-fluid" id="feed-img" src="{{dialogData.storyPreview}}">
           </ng-container>
           <ng-template #videoTmp>
-            <!-- <app-video class="img-fluid" id="feed-img" [inputSrc]="dialogData.storyPreview"></app-video> -->
+            <app-video class="img-fluid" id="feed-img" [inputSrc]="dialogData.storyPreview"></app-video>
           </ng-template>
           <div class="feed-text story-content d-flex justify-content-center">
             <div class="feed-header col-12">
@@ -37,7 +38,10 @@ export class ModalComponent implements OnInit {
   title = 'hello!';
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) protected dialogData) { }
+    private videoMdl: VideoComponent,
+    @Inject(MAT_DIALOG_DATA) public dialogData) {
+    this.videoMdl = videoMdl;
+  }
 
   ngOnInit() {
     // this.getStoryData();

@@ -14,17 +14,9 @@ import { MAT_DIALOG_DATA, MatDialogContent } from '@angular/material/dialog';
     BrowserAnimationsModule,
     // NgbModule
   ],
-  declarations: [ModalComponent],
+  declarations: [],
   exports: [],
-  providers: [{
-    provide: ModalComponent,
-    useValue: {}
-  }, {
-    provide: MAT_DIALOG_DATA,
-    useValue: {}
-  }
-  ],
-  entryComponents: [ModalComponent]
+  entryComponents: []
 })
 
 export class AnimationsModule { }

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../../services/database.service';
 import { catchError } from 'rxjs/operators';
 import { Observable, of, BehaviorSubject } from 'rxjs';
-import { ModalComponent } from '../../shared/models/modal.component';
 import { DialogService } from '../../services/dialog.service';
 
 
