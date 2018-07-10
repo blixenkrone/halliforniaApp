@@ -16,13 +16,19 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
           </ng-template>
           <div class="feed-text story-content d-flex justify-content-center">
             <div class="feed-header">
-              <p class="mb-0">{{dialogData.storyHeadline}}</p>
+              <div class="modal-heading justify-content-center mb-2">{{dialogData.storyHeadline}}</div>
               <span class="story-avatar">
-                <img class="ml-3" src="{{dialogData.userPicture}}" onError="this.src='../../../assets/images/bloody-bird-logo.svg'">
-                <a class="user-info ml-3">@{{dialogData.displayName}}</a>
+                <img src="{{dialogData.userPicture}}" onError="this.src='../../../assets/images/bloody-bird-logo.svg'">
+                <a class="user-info ml-1">@{{dialogData.displayName}}</a>
               </span>
-              <span class="icons ml-3">
+              <span class="impressions ml-3">
                 <i class="far fa-eye mr-1"></i>{{dialogData.impressions}}
+              </span>
+              <span class="time-ago ml-3">
+                <i class="far fa-clock mr-1"></i>{{dialogData.uploadDate | timeAgo}}
+              </span>
+              <span class="verified ml-3">
+                <i class="far fa-check-circle green-one" *ngIf="dialogData.isVerified"></i> Verified story
               </span>
             </div>
           </div>

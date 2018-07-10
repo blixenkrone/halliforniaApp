@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../../services/database.service';
-import { catchError } from 'rxjs/operators';
+import { catchError, toArray } from 'rxjs/operators';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { DialogService } from '../../services/dialog.service';
 
@@ -14,15 +14,12 @@ import { DialogService } from '../../services/dialog.service';
 export class FeedComponent implements OnInit {
 
   /*TODO:
-  1. Curated tag
-  3. Video source
-  4. Userpicture
-  5. Modal: Uploaddate, verified (green hak).
+  1. Dottet headline truncate
+  2. Userpicture
+  3. Animations
   */
 
-
   dbData = new BehaviorSubject<any>(null);
-
   storiesArr = [];
   maxStories: number = 15;
   isLoading: boolean;
@@ -62,9 +59,8 @@ export class FeedComponent implements OnInit {
         this.dbData.next(data);
         this.storiesArr = data;
         this.storiesArr.sort((a, b) => b.isFestival.moment - a.isFestival.moment);
-        this.storiesArr.forEach(story => {
-          console.log(story.isFestival);
-          this.getUserProfiles(story.userId)
+        this.storiesArr.forEach((story, index) => {
+          this.getUserProfiles(story.userId, index)
         });
         console.log(this.storiesArr);
         if (this.storiesArr.length > this.maxStories) {
@@ -75,8 +71,13 @@ export class FeedComponent implements OnInit {
       });
   }
 
-  getUserProfiles(id) {
-    // get user id's
+  getUserProfiles(id, index) {
+    this.dbSrv.fetchUserProfiles(id)
+      .pipe(catchError(err => of(err)))
+      .subscribe((users: any[]) => {
+        console.log(users)
+        console.log(index)
+      })
   }
 
   resetArraySize() {

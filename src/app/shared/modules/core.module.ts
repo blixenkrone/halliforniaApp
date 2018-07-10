@@ -11,6 +11,7 @@ import { VgBufferingModule } from 'videogular2/buffering';
 import { VideoComponent } from '../../shared/models/video.component';
 import { MatDialogModule, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ModalComponent } from '../models/modal.component';
+import { TimeAgoPipe } from 'time-ago-pipe';
 
 @NgModule({
   imports: [
@@ -25,12 +26,15 @@ import { ModalComponent } from '../models/modal.component';
     MatDialogModule
   ],
   exports: [
-    FeedComponent
+    FeedComponent,
+    VideoComponent,
+    ModalComponent
   ],
   declarations: [
     FeedComponent,
     VideoComponent,
-    ModalComponent
+    ModalComponent,
+    TimeAgoPipe
   ],
   bootstrap: [VideoComponent],
   providers: [{

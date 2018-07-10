@@ -9,7 +9,8 @@ import { Observable, BehaviorSubject } from 'rxjs';
 
 export class DatabaseService {
   idToken: any;
-  dbBaseRef: any = `${environment.environment}/stories`;
+  storyDbRef: any = `${environment.environment}/stories`;
+  userDbRef: any = `${environment.environment}/profiles`;
   fetchLoad: boolean = false;
 
   constructor(
@@ -17,23 +18,27 @@ export class DatabaseService {
   }
 
   public get curatedStoriesFromDB(): Observable<any> {
-    const dbRef = this.db.list<any>(this.dbBaseRef,
-      ref => ref.orderByChild('isFestival/promotion').equalTo(true).limitToLast(15));
-    return dbRef.valueChanges();
+    const dbRef = this.db.list<any>(this.storyDbRef,
+      ref => ref.orderByChild('isFestival/promotion').equalTo(true).limitToLast(15)).valueChanges();
+    return dbRef;
+  }
+
+  public fetchUserProfiles(userId): Observable<{}> {
+    const userDbRef = this.db.object<any>(`${this.userDbRef}/${userId}`).valueChanges();
+    return userDbRef;
   }
 
   public removeStoryFromFeed(story) {
-    const removedFromDB = this.db.object(`${this.dbBaseRef}/${story.storyId}`)
+    const removedFromDB = this.db.object(`${this.storyDbRef}/${story.storyId}`)
       .update({ isFestival: false })
       .then(_ => {
         console.log('success')
-
       })
       .catch(err => console.log(err))
     return removedFromDB;
   }
 
   setData(story) {
-    this.db.list<any>(this.dbBaseRef).set(story, { isFestival: null });
+    this.db.list<any>(this.storyDbRef).set(story, { isFestival: null });
   }
 }

@@ -1,10 +1,10 @@
 <div class="container" *ngIf="storiesArr && !isLoading">
-  <div class="row">
-    <div class="feed-container stories text-center justify-content-center m-3">
+  <div class="row mt-3">
+    <div class="feed-container stories text-center justify-content-center m-1">
       <div class="feed-container feed-row grid-item p-1" *ngFor="let story of storiesArr; let i = index;" id={{i}} (dblclick)="deleteStory(story)"
         (click)="onMouseHover(i, story)" [ngClass]="isIndexed(i) ? 'col-4' : 'col-2'">
         <div class="badge badge-good position-absolute" *ngIf="story.curatedTag"> {{story.curatedTag}} </div>
-        <div class="feed-body story byrd-shade-2 byrd-rad mb-0" [ngClass]="(i===3||i===4) ? 'mw-30' : 'mw-15'">
+        <div class="feed-body story byrd-shade-2 byrd-rad mb-0">
           <ng-container *ngIf="story.mediaType === 'image' || !story.mediaType; else videoTmp">
             <img class="img-fluid" id="feed-img" src="{{story.storyThumbnailImage}}">
           </ng-container>
@@ -13,7 +13,10 @@
           </ng-template>
           <div class="feed-text story-content d-flex justify-content-center">
             <div class="feed-header text-truncate">
-              <p class="mb-0">{{story.storyHeadline}}</p>
+              <p class="mb-0">
+                <i class="far fa-check-circle green-one" *ngIf="story.isVerified"></i>
+                {{story.storyHeadline}}
+              </p>
               <span class="story-avatar">
                 <img class="ml-1" src="{{story.userPicture}}" onError="this.src='../../../assets/images/bloody-bird-logo.svg'">
                 <a class="user-info ml-1">@{{story.displayName}}</a>
