@@ -25,7 +25,7 @@ export class DialogService {
     console.log(storyData)
     const dialogRef = this.dialog.open(ModalComponent, {
       data: storyData,
-      width: '35rem',
+      width: '40rem',
       // hasBackdrop: false
     })
   }

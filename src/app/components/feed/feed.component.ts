@@ -4,18 +4,6 @@ import { catchError } from 'rxjs/operators';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { DialogService } from '../../services/dialog.service';
 
-
-export interface IStoryModal {
-  storyOriginal: string;
-  storyType: string;
-  storyId: string;
-  upvotes: number;
-  userPicture: string;
-  displayName: string;
-  tags: string[];
-  uploadDate: number;
-}
-
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
@@ -34,13 +22,10 @@ export class FeedComponent implements OnInit {
 
 
   dbData = new BehaviorSubject<any>(null);
-  // storiesData = this.dbData.asObservable();
 
   storiesArr = [];
   maxStories: number = 15;
-  newLoad: boolean = false;
   isLoading: boolean;
-  timeBeforeAnimation = 2000;
 
   constructor(
     private dialogSrv: DialogService,
