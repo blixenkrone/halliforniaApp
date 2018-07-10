@@ -1,42 +1,64 @@
 img#byrd-header {
-  width: 3rem;
+  width: 5rem;
+}
+
+.halli-heading {
+  display: block;
+  position: absolute;
+  width: 100%;
+}
+
+.halli-text {
+  p {
+    color: $white-bird;
+    font-size: 3rem;
+  }
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 6.5rem;
 }
 
 .feed-container {
-  .masonry-item {
-    background-size: cover;
-    width: 25rem;
-    height: auto;
-    &.feed-row {
-      &.is-big {
-        width: 30rem !important;
-      }
-      &.is-small {
-        width: 17rem;
-      }
-    }
-    .feed-body {
+  .badge {
+    z-index: 10;
+    right: 0;
+    margin: 10px;
+  }
+  .feed-body {
+    background-color: $white-bird;
+    #feed-img {
+      width: 100%;
+      min-height: 100%;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
       background-color: $white-bird;
-      #feed-img {
-        width: 100%;
-        height: auto;
-        border-top-left-radius: 6px;
-        border-top-right-radius: 6px;
-        background-color: $white-bird;
-        border: none;
-      }
-      .feed-text {
-        background-color: $white-bird;
-        .feed-header,
-        p {
+      border: none;
+    }
+    .feed-text {
+      background-color: $white-bird;
+      .feed-header,
+      p {
+        font-size: 0.75rem;
+        color: $stale;
+        .user-info {
           font-size: 0.75rem;
-          color: $stale;
-          .user-info {
-            font-size: 0.75rem;
-          }
         }
       }
     }
+  }
+}
+
+.cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
+  opacity: 0.75;
+}
+
+mat-dialog-container {
+  background-color: $white-bird !important;
+  box-shadow: none !important;
+  img {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
   }
 }
 

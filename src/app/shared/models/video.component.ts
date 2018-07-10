@@ -24,6 +24,7 @@ export class VideoComponent implements OnInit {
 
   onPlayerReady(api: VgAPI) {
     this.vgApi = api;
+    this.vgApi.volume = 0;
     this.vgApi.getDefaultMedia().subscriptions.canPlay
       .subscribe(() => {
         this.vgApi.play();

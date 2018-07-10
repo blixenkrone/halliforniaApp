@@ -1,13 +1,12 @@
-import { AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Component, OnInit } from '@angular/core';
 import { DatabaseService } from '../../services/database.service';
-import { map, filter, catchError, count, elementAt, last } from 'rxjs/operators';
+import { catchError } from 'rxjs/operators';
 import { Observable, of, BehaviorSubject } from 'rxjs';
-import { trigger, state, style, animate, transition } from '@angular/animations';
-import { NgxMasonryOptions } from 'ngx-masonry';
-import { AngularFireList } from 'angularfire2/database';
+import { ModalComponent } from '../../shared/models/modal.component';
+import { DialogService } from '../../services/dialog.service';
 
-export interface IFeedStory {
+
+export interface IStoryModal {
   storyOriginal: string;
   storyType: string;
   storyId: string;
@@ -17,48 +16,58 @@ export interface IFeedStory {
   tags: string[];
   uploadDate: number;
 }
+
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss']
 })
 
+
 export class FeedComponent implements OnInit {
+
+  /*TODO:
+  1. Curated tag
+  3. Video source
+  4. Userpicture
+  5. Modal: Uploaddate, verified (green hak).
+  */
+
+
   dbData = new BehaviorSubject<any>(null);
   // storiesData = this.dbData.asObservable();
 
   storiesArr = [];
-  maxStories: number = 6;
+  maxStories: number = 15;
   newLoad: boolean = false;
   isLoading: boolean;
   timeBeforeAnimation = 2000;
 
-  masonryOptions: NgxMasonryOptions = {
-    transitionDuration: '0.8s',
-    itemSelector: '.feed-container, .masonry-item.masonry-item.feed-row',
-    columnWidth: 30,
-    initLayout: true,
-    resize: false,
-    horizontalOrder: true,
-    gutter: 5,
-    fitWidth: true
-  }
-
   constructor(
+    private dialogSrv: DialogService,
     private dbSrv: DatabaseService) { }
 
   ngOnInit() {
     // Init feed
     this.loadInit();
-    // this.removeAllStories(this.storiesArr)
   }
 
   isSmall(id: number, num: number) {
     return id % num === 0 ? false : true;
   }
 
-  doOtherStuff(event) {
-    console.log('done removing')
+  isIndexed(id: number) {
+    if (id === 6 || id === 7 || id === 8) {
+      return true;
+    }
+    return false;
+  }
+
+  onMouseHover(index, story) {
+    console.log(index, story.storyId)
+    this.dialogSrv.openDialog(story);
+    // this.modalSrv.open(story, { size: 'lg', centered: true })
+    // ModalComponent.prototype.openStory(story);
   }
 
   loadInit() {
@@ -68,39 +77,34 @@ export class FeedComponent implements OnInit {
       .subscribe((data: any[]) => {
         this.dbData.next(data);
         this.storiesArr = data;
-        this.storiesArr.sort((a, b) => (b.isFestival.moment) - (a.isFestival.moment))
+        this.storiesArr.sort((a, b) => b.isFestival.moment - a.isFestival.moment);
         this.storiesArr.forEach(story => {
-          console.log(story.isFestival)
+          console.log(story.isFestival);
+          this.getUserProfiles(story.userId)
         });
-        console.log(this.storiesArr)
+        console.log(this.storiesArr);
         if (this.storiesArr.length > this.maxStories) {
-          console.log('resize array')
+          console.log('resize array');
           this.resetArraySize();
         }
         this.isLoading = false;
-      })
+      });
   }
 
-  removeAllStories(storyArr) {
-    storyArr.forEach(story => {
-      this.dbSrv.removeStoryFromFeed(story);
-    });
+  getUserProfiles(id) {
+    // get user id's
   }
 
   resetArraySize() {
     this.isLoading = true;
     const removedStory = this.storiesArr.pop();
-    console.log(removedStory)
+    console.log(removedStory);
     this.dbSrv.removeStoryFromFeed(removedStory);
     this.isLoading = false;
   }
 
-  layout() {
-    console.log('masonry layout');
-  }
-
   deleteStory(story) {
-    console.log(story)
+    console.log(story);
     const confirmed = confirm('Delete this story from feed?');
     const deleteStory = () => this.dbSrv.removeStoryFromFeed(story);
     if (confirmed) {
@@ -110,5 +114,13 @@ export class FeedComponent implements OnInit {
       return;
     }
   }
+
+  removeAllStories(storyArr) {
+    storyArr.forEach(story => {
+      this.dbSrv.removeStoryFromFeed(story);
+    });
+  }
+
+
 
 }

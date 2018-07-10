@@ -2,7 +2,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { environment } from '../../environments/environment';
-import { IFeedStory } from '../components/feed/feed.component';
 import { Observable, BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -19,7 +18,7 @@ export class DatabaseService {
 
   public get curatedStoriesFromDB(): Observable<any> {
     const dbRef = this.db.list<any>(this.dbBaseRef,
-      ref => ref.orderByChild('isFestival/promotion').equalTo(true).limitToLast(10));
+      ref => ref.orderByChild('isFestival/promotion').equalTo(true).limitToLast(15));
     return dbRef.valueChanges();
   }
 

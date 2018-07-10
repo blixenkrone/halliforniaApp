@@ -9,7 +9,7 @@ import { VgControlsModule } from 'videogular2/controls';
 import { VgOverlayPlayModule } from 'videogular2/overlay-play';
 import { VgBufferingModule } from 'videogular2/buffering';
 import { VideoComponent } from '../../shared/models/video.component';
-
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   imports: [
@@ -21,6 +21,7 @@ import { VideoComponent } from '../../shared/models/video.component';
     VgBufferingModule,
     NgxMasonryModule,
     AnimationsModule,
+    MatDialogModule
   ],
   exports: [
     FeedComponent
@@ -29,6 +30,7 @@ import { VideoComponent } from '../../shared/models/video.component';
     FeedComponent,
     VideoComponent
   ],
-  bootstrap: [VideoComponent]
+  bootstrap: [VideoComponent],
+  providers: []
 })
 export class CoreModule { }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="2384px" height="380px" viewBox="0 0 2384 380" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
-    <title>Top Waves</title>
+<svg width="2388px" height="270px" viewBox="0 0 2388 270" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>top-waves</title>
     <desc>Created with Sketch.</desc>
     <defs>
         <linearGradient x1="60.2117479%" y1="1.03749278%" x2="59.4732344%" y2="89.1080561%" id="linearGradient-1">
@@ -13,16 +13,16 @@
             <stop stop-color="#DB3D7D" offset="100%"></stop>
         </linearGradient>
     </defs>
-    <g id="Desktop--Login-Page-with-Fous-and-Error" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Top-Waves" transform="translate(0.000000, -156.000000)">
-            <g transform="translate(1194.000000, 268.000000) rotate(-180.000000) translate(-1194.000000, -268.000000) " id="Group-14">
-                <g opacity="0.70946558" transform="translate(4.000000, 0.000000)" fill="url(#linearGradient-1)">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="top-waves" fill-rule="nonzero">
+            <g id="Group-14" transform="translate(1194.000000, 135.000000) rotate(-180.000000) translate(-1194.000000, -135.000000) ">
+                <g id="Group" opacity="0.70946558" transform="translate(4.000000, 0.000000)" fill="url(#linearGradient-1)">
                     <g id="Group-19">
-                        <path d="M0,1.62459014 C241.431983,22.1433424 1055.11518,80.993487 1319.55149,80.993487 C1636.22974,80.993487 1820.31676,27.9138887 2082.21635,8.27949469 C2212.31665,-1.47401631 2312.9112,-1.63385194 2384,7.79998779 L2384,219.637163 L6,219.637163 L0,1.62459014 Z" id="Rectangle-26"></path>
+                        <path d="M0,0.818356974 C241.431983,11.1542956 1055.11518,40.798958 1319.55149,40.798958 C1636.22974,40.798958 1820.31676,14.0611007 2082.21635,4.17064098 C2212.31665,-0.742508216 2312.9112,-0.823022432 2384,3.92909833 L2384,110.638123 L6,110.638123 L0,0.818356974 Z" id="Rectangle-26"></path>
                     </g>
                 </g>
-                <g transform="translate(0.000000, 19.661032)" fill="url(#linearGradient-2)">
-                    <path d="M4.54747351e-13,3.29895903 C233.930517,19.4248931 1057.54702,76.0146725 1323.55149,76.0146725 C1640.04423,76.0146725 1799.38571,22.5000713 2086.21635,5.30068017 C2204.0808,-1.76689339 2304.67535,-1.7674671 2388,5.29895903 L2388,515.835183 L0,515.835183 L4.54747351e-13,3.29895903 Z" id="Rectangle-26"></path>
+                <g id="Group" transform="translate(0.000000, 9.903878)" fill="url(#linearGradient-2)">
+                    <path d="M4.54747351e-13,1.66178906 C233.930517,9.78492749 1057.54702,38.2909731 1323.55149,38.2909731 C1640.04423,38.2909731 1799.38571,11.3339911 2086.21635,2.67011874 C2204.0808,-0.890039581 2304.67535,-0.890328576 2388,2.66925175 L2388,259.84235 L0,259.84235 L4.54747351e-13,1.66178906 Z" id="Rectangle-26"></path>
                 </g>
             </g>
         </g>
