@@ -3,6 +3,7 @@ import { DatabaseService } from '../../services/database.service';
 import { catchError, toArray } from 'rxjs/operators';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { DialogService } from '../../services/dialog.service';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-feed',
@@ -14,9 +15,8 @@ import { DialogService } from '../../services/dialog.service';
 export class FeedComponent implements OnInit {
 
   /*TODO:
-  1. Dottet headline truncate
-  2. Userpicture
-  3. Animations
+  1. Animations
+  2. Røde knapper på modal
   */
 
   dbData = new BehaviorSubject<any>(null);
@@ -30,7 +30,16 @@ export class FeedComponent implements OnInit {
 
   ngOnInit() {
     // Init feed
+    this.quickLogin();
     this.loadInit();
+  }
+
+  quickLogin() {
+    if (environment.production) {
+      this.dbSrv.loginWithEmail('hello@byrd.news', 'WinningTeam17');
+    } else {
+      this.dbSrv.loginWithEmail('simon@byrd.news', 'byrd1234')
+    }
   }
 
   isSmall(id: number, num: number) {
@@ -75,8 +84,8 @@ export class FeedComponent implements OnInit {
     this.dbSrv.fetchUserProfiles(id)
       .pipe(catchError(err => of(err)))
       .subscribe((users: any[]) => {
-        console.log(users)
-        console.log(index)
+        // console.log(users)
+        // console.log(index)
       })
   }
 

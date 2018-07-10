@@ -22,7 +22,7 @@ export class DialogService {
     private dialog: MatDialog) { }
 
   openDialog(storyData) {
-    console.log(storyData)
+    // console.log(storyData)
     const dialogRef = this.dialog.open(ModalComponent, {
       data: storyData,
       width: '35rem',
