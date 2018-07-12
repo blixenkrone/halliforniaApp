@@ -13,6 +13,7 @@ import { ModalComponent } from '../models/modal.component';
 import { TimeAgoPipe } from 'time-ago-pipe';
 import { HttpClientModule } from '../../../../node_modules/@angular/common/http';
 import { AngularFireAuthModule } from '../../../../node_modules/angularfire2/auth';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   imports: [
@@ -25,7 +26,8 @@ import { AngularFireAuthModule } from '../../../../node_modules/angularfire2/aut
     AnimationsModule,
     MatDialogModule,
     HttpClientModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule
   ],
   exports: [
     FeedComponent,

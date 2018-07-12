@@ -49,7 +49,7 @@ export class DatabaseService {
 
   public get curatedStoriesFromDB(): Observable<any> {
     const dbRef = this.db.list<any>(this.storyDbRef,
-      ref => ref.orderByChild('isFestival/promotion').equalTo(true).limitToLast(15)).valueChanges();
+      ref => ref.orderByChild('isFestival/promotion').equalTo(true).limitToLast(16)).valueChanges();
     return dbRef;
   }
 

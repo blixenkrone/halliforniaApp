@@ -4,11 +4,26 @@ import { catchError, toArray } from 'rxjs/operators';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { DialogService } from '../../services/dialog.service';
 import { environment } from '../../../environments/environment';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss']
+  styleUrls: ['./feed.component.scss'],
+  animations: [
+    trigger('heroState', [
+      state('inactive', style({
+        backgroundColor: '#eee',
+        transform: 'scale(1)'
+      })),
+      state('active', style({
+        backgroundColor: '#cfd8dc',
+        transform: 'scale(1.1)'
+      })),
+      transition('inactive => active', animate('100ms ease-in')),
+      transition('active => inactive', animate('100ms ease-out'))
+    ])
+  ]
 })
 
 
@@ -23,15 +38,40 @@ export class FeedComponent implements OnInit {
   storiesArr = [];
   maxStories: number = 15;
   isLoading: boolean;
+  animationStory: any;
+  state: string;
 
   constructor(
     private dialogSrv: DialogService,
     private dbSrv: DatabaseService) { }
 
   ngOnInit() {
+
     // Init feed
     this.quickLogin();
     this.loadInit();
+  }
+
+  toggleState() {
+    this.state = this.state === 'active' ? 'inactive' : 'active';
+  }
+
+  loadInit() {
+    this.isLoading = true;
+    this.dbSrv.curatedStoriesFromDB
+      .pipe(catchError(err => of(err)))
+      .subscribe((data: any[]) => {
+        // this.dbData.next(data);
+        this.storiesArr = data;
+        this.storiesArr.sort((a, b) => b.isFestival.moment - a.isFestival.moment);
+        console.log(this.storiesArr);
+        this.animationStory = this.storiesArr[0];
+        if (this.storiesArr.length > this.maxStories) {
+          console.log('resize array');
+          this.resetArraySize();
+        }
+        this.isLoading = false;
+      });
   }
 
   quickLogin() {
@@ -57,27 +97,7 @@ export class FeedComponent implements OnInit {
     console.log(index, story.storyId)
     this.dialogSrv.openDialog(story);
     // this.modalSrv.open(story, { size: 'lg', centered: true })
-    // ModalComponent.prototype.openStory(story);
-  }
-
-  loadInit() {
-    this.isLoading = true;
-    this.dbSrv.curatedStoriesFromDB
-      .pipe(catchError(err => of(err)))
-      .subscribe((data: any[]) => {
-        this.dbData.next(data);
-        this.storiesArr = data;
-        this.storiesArr.sort((a, b) => b.isFestival.moment - a.isFestival.moment);
-        this.storiesArr.forEach((story, index) => {
-          this.getUserProfiles(story.userId, index)
-        });
-        console.log(this.storiesArr);
-        if (this.storiesArr.length > this.maxStories) {
-          console.log('resize array');
-          this.resetArraySize();
-        }
-        this.isLoading = false;
-      });
+    // ModalComponent.prototype.openStory(story)
   }
 
   getUserProfiles(id, index) {
@@ -114,6 +134,8 @@ export class FeedComponent implements OnInit {
       this.dbSrv.removeStoryFromFeed(story);
     });
   }
+
+
 
 
 

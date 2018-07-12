@@ -57,7 +57,6 @@ export class ModalComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.dialogData)
     if (this.dialogData.storyType === 'multiple') {
       this.ngbConfig.interval = 5000000;
       console.log('multiple story!')
