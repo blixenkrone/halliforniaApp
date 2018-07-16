@@ -25,12 +25,18 @@ export class DatabaseService {
     private db: AngularFireDatabase) {
   }
 
-  loginWithEmail(email: string, password: string) {
-    this.af.auth.signInWithEmailAndPassword(email, password)
+  loginWithEmail(email: string, password: string): Promise<any> {
+    return this.af.auth.signInWithEmailAndPassword(email, password)
       .then(user => {
         console.log('Success!')
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        if (err) {
+          window.location.reload();
+        }
+        console.log(err)
+
+      })
   }
 
   getToken(): Observable<any> {

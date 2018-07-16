@@ -15,7 +15,8 @@ import { environment } from '../../../environments/environment';
 export class FeedComponent implements OnInit {
 
   /*TODO:
-  1. Animations
+  1. Login box
+  2. Waves length
   */
 
   storiesArr = [];
@@ -63,10 +64,12 @@ export class FeedComponent implements OnInit {
   }
 
   quickLogin() {
+    const pw = prompt('Password:', '')
+    console.log(pw)
     if (environment.production) {
-      this.dbSrv.loginWithEmail('hello@byrd.news', 'WinningTeam17');
+      this.dbSrv.loginWithEmail('hello@byrd.news', pw);
     } else {
-      this.dbSrv.loginWithEmail('simon@byrd.news', 'byrd1234')
+      this.dbSrv.loginWithEmail('simon@byrd.news', pw);
     }
   }
 
