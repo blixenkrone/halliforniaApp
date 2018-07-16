@@ -4,37 +4,20 @@ import { catchError, toArray } from 'rxjs/operators';
 import { Observable, of, BehaviorSubject } from 'rxjs';
 import { DialogService } from '../../services/dialog.service';
 import { environment } from '../../../environments/environment';
-import { trigger, state, style, animate, transition } from '@angular/animations';
+// import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss'],
-  animations: [
-    trigger('heroState', [
-      state('inactive', style({
-        backgroundColor: '#eee',
-        transform: 'scale(1)'
-      })),
-      state('active', style({
-        backgroundColor: '#cfd8dc',
-        transform: 'scale(1.1)'
-      })),
-      transition('inactive => active', animate('100ms ease-in')),
-      transition('active => inactive', animate('100ms ease-out'))
-    ])
-  ]
 })
-
 
 export class FeedComponent implements OnInit {
 
   /*TODO:
   1. Animations
-  2. Røde knapper på modal
   */
 
-  dbData = new BehaviorSubject<any>(null);
   storiesArr = [];
   maxStories: number = 15;
   isLoading: boolean;
@@ -46,30 +29,38 @@ export class FeedComponent implements OnInit {
     private dbSrv: DatabaseService) { }
 
   ngOnInit() {
-
     // Init feed
     this.quickLogin();
     this.loadInit();
   }
 
-  toggleState() {
-    this.state = this.state === 'active' ? 'inactive' : 'active';
+  animateStory(index) {
+    // console.log('animate: ' + index)
+    if (index === 0) {
+      return 'story-animation in';
+    }
+    // if (index === 14) {
+    //   ngclass = 'story-animation out';
+    // }
+    return '';
   }
+
 
   loadInit() {
     this.isLoading = true;
     this.dbSrv.curatedStoriesFromDB
       .pipe(catchError(err => of(err)))
       .subscribe((data: any[]) => {
-        // this.dbData.next(data);
         this.storiesArr = data;
         this.storiesArr.sort((a, b) => b.isFestival.moment - a.isFestival.moment);
         console.log(this.storiesArr);
-        this.animationStory = this.storiesArr[0];
         if (this.storiesArr.length > this.maxStories) {
           console.log('resize array');
           this.resetArraySize();
         }
+        this.storiesArr.forEach((story) => {
+          this.dbSrv.removeStoryFromFeed(story)
+        })
         this.isLoading = false;
       });
   }
@@ -96,8 +87,6 @@ export class FeedComponent implements OnInit {
   onMouseHover(index, story) {
     console.log(index, story.storyId)
     this.dialogSrv.openDialog(story);
-    // this.modalSrv.open(story, { size: 'lg', centered: true })
-    // ModalComponent.prototype.openStory(story)
   }
 
   getUserProfiles(id, index) {
@@ -123,7 +112,7 @@ export class FeedComponent implements OnInit {
     const deleteStory = () => this.dbSrv.removeStoryFromFeed(story);
     if (confirmed) {
       deleteStory();
-      window.location.reload();
+      // window.location.reload();
     } else {
       return;
     }
@@ -134,9 +123,5 @@ export class FeedComponent implements OnInit {
       this.dbSrv.removeStoryFromFeed(story);
     });
   }
-
-
-
-
 
 }

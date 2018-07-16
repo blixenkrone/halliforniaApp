@@ -1,12 +1,11 @@
 <div class="container" *ngIf="storiesArr && !isLoading">
   <div class="row mt-3">
     <div class="feed-container stories text-center justify-content-center m-1">
-      <div class="feed-container feed-row grid-item p-1" *ngFor="let story of storiesArr; let i = index;" id={{i}} [@heroState]="story"
-        [ngClass]="isIndexed(i) ? 'col-4' : 'col-2'">
+      <div #animStory class="feed-row grid-item p-1" *ngFor="let story of storiesArr; let i = index;" id={{i}} [ngClass]="[isIndexed(i) ? 'col-4' : 'col-2', animateStory(i)]">
         <div class="badge badge-good position-absolute" *ngIf="story.curatedTag"> {{story.curatedTag}} </div>
         <div class="feed-body story byrd-shade-2 byrd-rad mb-0">
           <ng-container *ngIf="story.storyMediaType && story.storyMediaType === 'image'; else videoTmp">
-            <img class="img-fluid" id="feed-img" src="{{story.storyThumbnailImage}}" (click)="onMouseHover(i, story)">
+            <img class="img-fluid" id="feed-img" src="{{ story.storyThumbnailImage }}" (click)="onMouseHover(i, story)">
           </ng-container>
           <ng-template #videoTmp>
             <app-video (click)="onMouseHover(i, story)" *ngIf="story.storyMediaType && story.storyMediaType === 'video'" class="img-fluid"

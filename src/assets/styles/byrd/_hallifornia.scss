@@ -118,3 +118,50 @@ vg-player {
   bottom: 45px;
   color: $bird-of-prey;
 }
+
+@keyframes fadeOutEffect {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+// @keyframes wobbleEffect {
+//   0% {
+//     transform: scale(.3);
+//     border-radius: 100%;
+//   }
+//   50% {
+//     transform: scale(1.5);
+//   }
+//   100% {
+//     transform: scale(1);
+//   }
+// }
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+  }
+  50% {
+    opacity: 0.7;
+    transform: translate3d(-50%, 0, 0);
+  }
+  50% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.story-animation {
+  &.in {
+    -webkit-animation: fadeInLeft 2s;
+    animation: fadeInLeft 2s;
+  }
+  &.out {
+    -webkit-animation: fadeOutEffect 3s;
+    animation: fadeOutEffect 3s;
+  }
+}
