@@ -115,8 +115,8 @@ export class FeedComponent implements OnInit {
     }
   }
 
-  removeAllStories(storyArr) {
-    storyArr.forEach(story => {
+  removeAllStories() {
+    this.storiesArr.forEach(story => {
       this.dbSrv.removeStoryFromFeed(story);
     });
   }
