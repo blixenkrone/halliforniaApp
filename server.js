@@ -2,8 +2,11 @@ const express = require('express')
 const path = require('path')
 const app = express();
 
-app.use(express.static(__dirname + '/dist/halliforniaApp'));
+app.use(express.static(path.join(__dirname + '/dist/halliforniaApp')));
 
-app.get('/', (req, res) => res.sendFile(path.join(__dirname + '/dist/index.html')));
+app.get('*', (req, res) => {
+  const index = path.join(__dirname + '/dist/halliforniaApp/index.html');
+  res.sendFile(index)
+});
 
 app.listen(process.env.PORT || 8080);
