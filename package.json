@@ -1,6 +1,10 @@
 {
   "name": "hallifornia-app",
   "version": "0.0.0",
+  "engines": {
+    "node": "9.2.0",
+    "npm": "6.1.0"
+  },
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
@@ -9,10 +13,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "postinstall": "ng build --prod"
-  },
-  "engines": {
-    "node": "9.2.0",
-    "npm": "6.1.0"
   },
   "private": true,
   "dependencies": {
