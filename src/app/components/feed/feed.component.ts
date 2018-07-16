@@ -58,9 +58,6 @@ export class FeedComponent implements OnInit {
           console.log('resize array');
           this.resetArraySize();
         }
-        this.storiesArr.forEach((story) => {
-          this.dbSrv.removeStoryFromFeed(story)
-        })
         this.isLoading = false;
       });
   }
