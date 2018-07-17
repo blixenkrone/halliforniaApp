@@ -4,8 +4,15 @@ img#byrd-header {
 
 .halli-heading {
   display: block;
-  position: absolute;
+  margin-top: 4rem;
+  /* position: absolute; */
   width: 100%;
+}
+
+.waves {
+  max-width: 100%;
+  display: flex;
+  position: absolute;
 }
 
 .halli-text {
@@ -13,10 +20,10 @@ img#byrd-header {
     color: $white-bird;
     font-size: 3rem;
   }
+  top: 1.5rem;
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  bottom: 6.5rem;
 }
 
 .feed-container {

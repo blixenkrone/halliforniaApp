@@ -64,12 +64,11 @@ export class FeedComponent implements OnInit {
   }
 
   quickLogin() {
-    const pw = prompt('Password:', '')
-    console.log(pw)
     if (environment.production) {
+      const pw = prompt('Password:', '')
       this.dbSrv.loginWithEmail('hello@byrd.news', pw);
     } else {
-      this.dbSrv.loginWithEmail('simon@byrd.news', pw);
+      this.dbSrv.loginWithEmail('simon@byrd.news', 'byrd1234');
     }
   }
 
